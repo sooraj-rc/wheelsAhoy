@@ -100,7 +100,7 @@ class Admin_model extends CI_Model
 	{
 		$query = $this->db->select("*")
 			->where("flag", $flag)
-			->from("wa_contents")
+			->from("wa_page_contents")
 			->get();
 		if ($query->num_rows() > 0) {
 			$result = $query->row_array();
@@ -116,15 +116,56 @@ class Admin_model extends CI_Model
 		$content    = $contentdata['content'];
 		$id      = $contentdata['id'];
 		$content_arr = array(
-			"content" => $content
+			"contents" => $content
 		);
 
 		if ($mode == "edit") {
 			$this->db->where("id", $id);
-			$this->db->update("wa_contents", $content_arr);
+			$this->db->update("wa_page_contents", $content_arr);
 			return "edited";
 		} else {
 			return '';
+		}
+	}
+
+
+	// process clients - add/edit/delete
+	public function process_clients($mode, $clientsdata)
+	{
+		$client_name    = $clientsdata['client_name'];
+		$company_name      = $clientsdata['company_name'];
+		$logo      = $clientsdata['logo'];
+		$flag      = $clientsdata['flag'];
+		$cid		= $clientsdata['id'];
+		$cdata = array(
+			"client_name" => $client_name,
+			"company_name" => $company_name,
+			"logo" => $logo,
+			"flag"	=> $flag,
+		);
+
+		if ($mode == "add") {
+			$this->db->select("*");
+			$this->db->from("wa_clients");			
+			$query = $this->db->get();
+			$this->db->insert("wa_clients", $cdata);
+			return "added";
+		}
+		if ($mode == "edit") {
+			$this->db->select("*");
+			$this->db->from("wa_contents");
+			$this->db->where("id", $cid);
+			$query = $this->db->get();
+			if ($query->num_rows() == 1) {
+				$this->db->where("id", $cid);
+				$this->db->update("wa_clients", $cdata);
+				return "edited";
+			}
+		}
+		if ($mode == "delete") {
+			$this->db->where("id", $cid);
+			$this->db->delete("wa_clients");
+			return "deleted";
 		}
 	}
 }

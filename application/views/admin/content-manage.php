@@ -37,14 +37,14 @@
 
 						<div class="form-group">
 							<label>Story Content</label>
-							<textarea class="form-control textarea2" name="descr" placeholder=""><?php echo $content['content'] ?></textarea>
+							<textarea class="form-control textarea2" name="content" placeholder=""><?php echo $content_data['contents'] ?></textarea>
 						</div>
 
 
 
 						<div class="box-footer">
-							<?php if (!empty($content)) { ?>
-								<input type="hidden" name="id" value="<?php echo $content['id']; ?>">
+							<?php if (!empty($content_data)) { ?>
+								<input type="hidden" name="id" value="<?php echo $content_data['id']; ?>">
 								<input type="hidden" name="flag" value="<?php echo $flag; ?>">
 								<input type="hidden" name="mode" value="edit">
 							<?php } ?>
