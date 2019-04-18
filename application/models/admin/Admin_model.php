@@ -39,22 +39,6 @@ class Admin_model extends CI_Model
 		}
 	}
 
-
-	//function to get tour category details
-	public function get_category($cat_id)
-	{
-		$query = $this->db->select("*")
-			->where("id", $cat_id)
-			->from("default_tour_categories")
-			->get();
-		if ($query->num_rows() > 0) {
-			$result = $query->row_array();
-			return $result;
-		} else {
-			return '';
-		}
-	}
-
 	// process services - add/edit/delete
 	public function process_services($mode, $servicedata)
 	{
@@ -146,7 +130,7 @@ class Admin_model extends CI_Model
 
 		if ($mode == "add") {
 			$this->db->select("*");
-			$this->db->from("wa_clients");			
+			$this->db->from("wa_clients");
 			$query = $this->db->get();
 			$this->db->insert("wa_clients", $cdata);
 			return "added";
@@ -166,6 +150,36 @@ class Admin_model extends CI_Model
 			$this->db->where("id", $cid);
 			$this->db->delete("wa_clients");
 			return "deleted";
+		}
+	}
+
+	//get clients
+	public function get_clients($flag = "")
+	{
+		$query = $this->db->select("*");
+		if (!empty($flag)) {
+			$query = $query->where("flag", $flag);
+		}
+		$query = $query->from("wa_services")->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->result_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
+
+	public function get_client_data($cid = "")
+	{
+		$query = $this->db->select("*")
+			->where("id", $cid)
+			->from("wa_clients")
+			->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->row_array();
+			return $result;
+		} else {
+			return '';
 		}
 	}
 }
