@@ -25,7 +25,7 @@
 			</div>
 
 			<div class="box-body">
-				<h2>Builder Clients</h2>
+				<h3>Builder Clients</h3>
 				<?php foreach ($clients1 as $cli1) { ?>
 					<div class="col-md-3 text-center">
 						<div class="listbox">
@@ -39,8 +39,8 @@
 						</div>
 					</div>
 				<?php } ?>
-
-				<h2>Truck Clients</h2>
+					<div class="clearfix"></div>
+				<h3>Truck Clients</h3>
 				<?php foreach ($clients2 as $cli2) { ?>
 					<div class="col-md-3 text-center">
 						<div class="listbox">

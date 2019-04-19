@@ -121,12 +121,14 @@ class Admin_model extends CI_Model
 		$logo      = $clientsdata['logo'];
 		$flag      = $clientsdata['flag'];
 		$cid		= $clientsdata['id'];
+		//echo $cid; die();
 		$cdata = array(
 			"client_name" => $client_name,
 			"company_name" => $company_name,
 			"logo" => $logo,
 			"flag"	=> $flag,
 		);
+		//p($cdata,true);
 
 		if ($mode == "add") {
 			$this->db->select("*");
@@ -137,7 +139,7 @@ class Admin_model extends CI_Model
 		}
 		if ($mode == "edit") {
 			$this->db->select("*");
-			$this->db->from("wa_contents");
+			$this->db->from("wa_clients");
 			$this->db->where("id", $cid);
 			$query = $this->db->get();
 			if ($query->num_rows() == 1) {
@@ -160,7 +162,7 @@ class Admin_model extends CI_Model
 		if (!empty($flag)) {
 			$query = $query->where("flag", $flag);
 		}
-		$query = $query->from("wa_services")->get();
+		$query = $query->from("wa_clients")->get();
 		if ($query->num_rows() > 0) {
 			$result = $query->result_array();
 			return $result;

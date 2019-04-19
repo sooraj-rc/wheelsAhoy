@@ -158,21 +158,7 @@
                                 </li>
                             </ul>
                         </li>
-                        
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-file" aria-hidden="true"></i>
-                                <span>Manage Page Contents</span>                                
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="<?php echo admin_url() . 'contents/ourguide'; ?>"><i class="fa fa-list"></i> Our Guide</a>
-                                </li> 
-                                <li><a href="<?php echo admin_url() . 'contents/touristvisa'; ?>"><i class="fa fa-list"></i> UAE Tourist Visa</a>
-                                </li> 
-                                <li><a href="<?php echo admin_url() . 'contents/residencevisa'; ?>"><i class="fa fa-list"></i> UAE Residence Visa</a>
-                                </li> 
-                            </ul>
-                        </li>
+                                                
 
                         <li class="divider" style="border: #304148 solid 1px;"></li>
                         <li class="treeview">

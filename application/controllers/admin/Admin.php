@@ -191,7 +191,7 @@ class Admin extends CI_Controller
 	}
 
 	//Manage clients
-	public function manage_clients($mode = "", $sid = "")
+	public function manage_clients($mode = "", $cid = "")
 	{
 		(!$this->authentication->check_logged_in("admin", false)) ? redirect('admin') : '';
 		//$mode = $this->input->post('mode',true);         
@@ -235,15 +235,15 @@ class Admin extends CI_Controller
 				}
 			}
 		}
-		// Category edit area
+		// client edit area
 		if ($mode == "edit") {
 			$page = 'admin/clients-manage';
-			$clientdata = $this->admin_model->get_client_data($sid);
+			$clientdata = $this->admin_model->get_client_data($cid);
 			//p($servicedata,true);
 			$this->gen_contents['clientdata'] = $clientdata;
 
 			$this->load->library('form_validation');
-			$this->form_validation->set_rules('title', 'Client Name', 'required');
+			$this->form_validation->set_rules('client_name', 'Client Name', 'required');
 			if ($this->form_validation->run() == TRUE) {
 				$client_name = $this->input->post("client_name", true);
 				$company_name = $this->input->post("company_name", true);
@@ -267,7 +267,8 @@ class Admin extends CI_Controller
 					"client_name" => $client_name,
 					'company_name'  => $company_name,
 					'logo' => $image_name,
-					'flag'  => $flag
+                    'flag'  => $flag,
+                    'id'    => $this->input->post("id", true)
 				);
 				$response = $this->admin_model->process_clients("edit", $clientsdata);
 				//echo $response; exit;
@@ -280,13 +281,13 @@ class Admin extends CI_Controller
 			}
 		}
 		// Category delete area
-		if ($mode == "delete" && !empty($sid)) {
+		if ($mode == "delete" && !empty($cid)) {
 			$clientsdata = array(
-				'id' => $sid
+				'id' => $cid
 			);
 			$response = $this->admin_model->process_clients("delete", $clientsdata);
 			sf('success_message', 'Clients has been deleted successfully');
-			redirect("admin/services");
+			redirect("admin/clients");
 		}
 
 		//rendering page
