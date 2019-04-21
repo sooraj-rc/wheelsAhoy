@@ -28,6 +28,7 @@
             .skin-red .main-header .logo:hover{background-color: #f57f2a !important;}
             .skin-red .main-header li.user-header{background-color: #f57f2a !important;}
             .user-panel>.image>img{height: 50px !important; width: 50px !important;}
+            .listbox img{display: block;margin-left: auto;margin-right: auto;}
         </style>
         <script>
             //function preventBack(){window.history.forward();}
@@ -156,6 +157,43 @@
                                 </li>
                                 <li><a href="<?php echo admin_url() . 'clients'; ?>"><i class="fa fa-list"></i> List Clients</a>
                                 </li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cubes"></i>
+                                <span>Manage Testimonials</span>                                
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo admin_url() . 'testimonials/add'; ?>"><i class="fa fa-plus"></i> Add Testimonials</a>
+                                </li>
+                                <li><a href="<?php echo admin_url() . 'testimonials'; ?>"><i class="fa fa-list"></i> List Testimonials</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cubes"></i>
+                                <span>Manage Blogs</span>                                
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo admin_url() . 'blogs/add'; ?>"><i class="fa fa-plus"></i> Add Blog</a>
+                                </li>
+                                <li><a href="<?php echo admin_url() . 'blogs'; ?>"><i class="fa fa-list"></i> List Blogs</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cubes"></i>
+                                <span>Manage Events</span>                                
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo admin_url() . 'events'; ?>"><i class="fa fa-plus"></i> Manage Events</a>
+                                </li>                                
                             </ul>
                         </li>
                                                 

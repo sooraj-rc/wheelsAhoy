@@ -1,62 +1,27 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Web extends CI_Controller {
+class Web extends CI_Controller
+{
+        public function __construct()
+        {
+                parent::__construct();
+		$this->load->model('admin/admin_model');
+        }
 
-	public function index()
-	{
-        $this->gen_contents = array();
-        $this->gen_contents['data'] = "Sample Data";
-        $this->template->write_view('content', 'index', $this->gen_contents);
-        $this->template->render();
-    
-	}
-
-	public function job_post_appln(){
-		$this->load->library('form_validation');
-		$this->load->library('upload');
-		$this->form_validation->set_rules('name', 'Name', 'required');
-		$this->form_validation->set_rules('email', 'Email', 'required',
-				array('required' => 'You must provide a %s.')
-		);		
-
-		if ($this->form_validation->run() == FALSE)
-		{
-			$this->load->view('index');
-		}
-		else
-		{	
-			$this->load->model('web_model');		
-			$data = $this->input->post();
-
-			$config['upload_path'] = "assets/uploads";
-			$config['allowed_types'] = "pdf|doc|docx";
-			$config['encrypt_name'] = true;
-
-			$this->upload->initialize($config);
-			if($this->upload->do_upload('resume')){
-				$upload_detail = $this->upload->data();
-				$data['resume'] = $upload_detail['file_name'];
-			}
-			else{
-				echo $this->upload->display_errors();
-				exit;
-			}
-
-
-			if($this->web_model->jobpost_appln($data)){
-				echo 'Success';
-				print_r($this->session->userdata());
-			}
-			else{
-				echo "Failed";
-			}
-			exit;
-			$this->load->view('success');
-		}
-	}
-
-	public function jobs(){
-		$this->load->view('jobs');
-	}
+        public function index()
+        {
+                $this->gen_contents = array();
+                $this->gen_contents['__story'] = $this->admin_model->get_content_data('story'); // get story
+                $this->gen_contents['__services'] = $this->admin_model->get_services(); // get services
+                $this->gen_contents['__clients_builder'] = $this->admin_model->get_clients('builder'); // get builder clients
+                $this->gen_contents['__clients_truck'] = $this->admin_model->get_clients('truck'); // get truck clients
+                $this->gen_contents['__testimonials'] = $this->admin_model->get_testimonials('truck'); // get testimonials
+                $this->gen_contents['__blogs'] = $this->admin_model->get_blogs(); // get blogs
+                $this->gen_contents['__events_up'] = $this->admin_model->get_events('upcoming'); // get events - upcoming
+                $this->gen_contents['__events_past'] = $this->admin_model->get_events('past'); // get events - past
+                //p($this->gen_contents['__story'], true);
+                $this->template->write_view('content', 'index', $this->gen_contents);
+                $this->template->render();
+        }
 }

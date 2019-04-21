@@ -174,10 +174,17 @@
   box-sizing: border-box; }
 
 .dropzone {
-  min-height: 370px;
+  /* min-height: 370px;
+  padding: 20px 0px;
+  z-index: 1;
+  position: relative; */
+  min-height: 150px;
   padding: 20px 0px;
   z-index: 1;
   position: relative;
+  background: #f3f3f3;
+  border: #dcdcdc dashed 2px;
+  border-radius: 10px;
 }
   .company-pic-upload.dz-clickable {
     cursor: pointer; }

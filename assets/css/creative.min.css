@@ -500,6 +500,13 @@ header.masthead p {
 }
 
 
+.service-para p{
+    font-style: normal;
+    line-height: 1.7;
+    color: #6c757d!important;
+    margin-bottom: 0!important;
+}
+
 /**/
 .carousel-item.active,
 .carousel-item-next,

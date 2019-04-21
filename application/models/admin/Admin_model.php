@@ -171,6 +171,7 @@ class Admin_model extends CI_Model
 		}
 	}
 
+	//Get client data by ID
 	public function get_client_data($cid = "")
 	{
 		$query = $this->db->select("*")
@@ -184,4 +185,199 @@ class Admin_model extends CI_Model
 			return '';
 		}
 	}
+
+	// process testimonial - add/edit/delete
+	public function process_testimonial($mode, $testidata)
+	{
+		$title    		= $testidata['title'];
+		$testimonial    = $testidata['testimonial'];
+		$by_name      	= $testidata['by_name'];
+		$by_image      	= $testidata['by_image'];
+		$tid			= $testidata['id'];
+		
+		$tdata = array(
+			"title" => $title,
+			"testimonial" => $testimonial,
+			"by_image" => $by_image,
+			"by_name"	=> $by_name,
+		);
+	
+
+		if ($mode == "add") {
+			$this->db->select("*");
+			$this->db->from("wa_testimonials");
+			$query = $this->db->get();
+			$this->db->insert("wa_testimonials", $tdata);
+			return "added";
+		}
+		if ($mode == "edit") {
+			$this->db->select("*");
+			$this->db->from("wa_testimonials");
+			$this->db->where("id", $tid);
+			$query = $this->db->get();
+			if ($query->num_rows() == 1) {
+				$this->db->where("id", $tid);
+				$this->db->update("wa_testimonials", $tdata);
+				return "edited";
+			}
+		}
+		if ($mode == "delete") {
+			$this->db->where("id", $tid);
+			$this->db->delete("wa_testimonials");
+			return "deleted";
+		}
+	}
+
+	//get testimonials
+	public function get_testimonials()
+	{
+		$query = $this->db->select("*");		
+		$query = $query->from("wa_testimonials")->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->result_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
+	
+	//Get testimonial data by ID
+	public function get_testimonial_data($tid = "")
+	{
+		$query = $this->db->select("*")
+			->where("id", $tid)
+			->from("wa_testimonials")
+			->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->row_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
+
+	// process blogs - add/edit/delete
+	public function process_blog($mode, $blogdata)
+	{
+		$title    		= $blogdata['blog_title'];
+		$content    	= $blogdata['blog_content'];		
+		$blog_image     = $blogdata['blog_image'];
+		$bid			= $blogdata['id'];
+		
+		$bdata = array(
+			"blog_title" => $title,
+			"blog_content" => $content,
+			"blog_image" => $blog_image			
+		);
+	
+
+		if ($mode == "add") {
+			$this->db->select("*");
+			$this->db->from("wa_blogs");
+			$query = $this->db->get();
+			$this->db->insert("wa_blogs", $bdata);
+			return "added";
+		}
+		if ($mode == "edit") {
+			$this->db->select("*");
+			$this->db->from("wa_blogs");
+			$this->db->where("id", $bid);
+			$query = $this->db->get();
+			if ($query->num_rows() == 1) {
+				$this->db->where("id", $bid);
+				$this->db->update("wa_blogs", $bdata);
+				return "edited";
+			}
+		}
+		if ($mode == "delete") {
+			$this->db->where("id", $bid);
+			$this->db->delete("wa_blogs");
+			return "deleted";
+		}
+	}
+
+	//get Blogs
+	public function get_blogs()
+	{
+		$query = $this->db->select("*");		
+		$query = $query->from("wa_blogs")->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->result_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
+	
+	//Get testimonial data by ID
+	public function get_blog_data($bid = "")
+	{
+		$query = $this->db->select("*")
+			->where("id", $bid)
+			->from("wa_blogs")
+			->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->row_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
+
+	//upload events
+	public function process_events($mode = "", $evedata = ""){
+		if($mode == "add"){
+			$edata = array(
+				'event_image' => $evedata['event_image']
+			);
+			$this->db->insert("wa_events", $edata);
+			return true;
+		}
+		if($mode == "delete"){
+			$eid = $evedata['eid'];
+			$this->db->where("id", $eid);
+			$this->db->delete("wa_events");
+			return true;
+			
+		}
+		
+	}
+
+	//get events
+	public function get_events($flag = ""){
+		$query = $this->db->select("*");	
+		if(!empty($flag)){
+			$query = $query->where('flag', $flag);
+		}	
+		$query = $query->from("wa_events")->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->result_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
+
+	public function update_event_flag($id = ''){
+		$query = $this->db->select("*")
+					->where("id", $id)
+					->from('wa_events')->get();	
+		$result = $query->row_array();	
+		if($result['flag'] == 'upcoming'){
+			$data = array(
+				'flag' => 'past'
+			);			
+		}
+		if($result['flag'] == 'past'){
+			$data = array(
+				'flag' => 'upcoming'
+			);			
+		}
+		$this->db->where("id", $id);
+		$this->db->update("wa_events", $data);
+		return $data['flag'];
+	}
+
+
+	
 }

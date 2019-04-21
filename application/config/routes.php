@@ -53,9 +53,6 @@ $route['default_controller'] = 'web';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['jobappln'] = 'web/job_post_appln';
-$route['jobs'] = 'web/jobs';
-
 
 //----------- admin common routing ------------
 $route['admin']             = "admin/user/index";
@@ -72,3 +69,17 @@ $route['admin/services/(:any)/(:any)']  = "admin/admin/manage_services/$1/$2";
 $route['admin/clients']      = "admin/admin/manage_clients";
 $route['admin/clients/(:any)']         = "admin/admin/manage_clients/$1";
 $route['admin/clients/(:any)/(:any)']  = "admin/admin/manage_clients/$1/$2";
+
+$route['admin/testimonials']      = "admin/admin/manage_testimonials";
+$route['admin/testimonials/(:any)']         = "admin/admin/manage_testimonials/$1";
+$route['admin/testimonials/(:any)/(:any)']  = "admin/admin/manage_testimonials/$1/$2";
+
+$route['admin/blogs']      = "admin/admin/manage_blogs";
+$route['admin/blogs/(:any)']         = "admin/admin/manage_blogs/$1";
+$route['admin/blogs/(:any)/(:any)']  = "admin/admin/manage_blogs/$1/$2";
+
+$route['admin/events']      = "admin/admin/manage_events";
+$route['admin/events/upload']      = "admin/admin/events_upload";
+$route['admin/events/(:any)/(:any)']  = "admin/admin/manage_events/$1/$2";
+$route['admin/updateEventFlag_AJAX']      = "admin/admin/update_event_flag";
+ 
