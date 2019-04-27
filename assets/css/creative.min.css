@@ -62,7 +62,8 @@ h6 {
 #truck-services {
     background-image: url(../img/paper-2.png);
     background-color: #fff;
-    height:100vh;
+    min-height:70vh;
+    height: auto;
 }
 #contact .form-control {
     display: block;
@@ -442,25 +443,34 @@ header.masthead p {
 }
 
 /*----------- April-6-2019 --------------*/
+@media (min-width: 320px) and (max-width: 480px) {
+   .tm{
+       padding: 0 !important;
+   }
+}
 #clients {
     background-image: url(../img/paper-2.png);
     background-color: #fff;
-    height:150vh;
+    min-height:90vh;
+    height: auto;
 }
 #testimonials {
     background-image: url(../img/paper-2.png);
     background-color: #fff;
-    height:100vh;
+    min-height:70vh;
+    height: auto;
 }
 #blogs {
     background-image: url(../img/paper-2.png);
     background-color: #fff;
-    height:150vh;
+    min-height:90vh;
+    height: auto;
 }
 #events {
     background-image: url(../img/paper-2.png);
     background-color: #fff;
-    height:150vh;
+    min-height:100vh;
+    height: auto;
 }
 .clients-list div{
     text-align: center;
@@ -477,10 +487,9 @@ header.masthead p {
     text-transform: uppercase;    
 }
 .blog-body{
-    padding: 5px 40px !important;
+    /* padding: 5px 40px !important; */
     font-size: 18px;
-    font-weight: 100;
-    
+    font-weight: 100;    
 }
 .blog-body p{
     color: #6c757d !important;
@@ -505,6 +514,26 @@ header.masthead p {
     line-height: 1.7;
     color: #6c757d!important;
     margin-bottom: 0!important;
+}
+.slick-prev{
+    background: url('../img/left-arrow.png') no-repeat;
+    width: 32px; 
+    height: 32px; 
+    /* left: -65px !important; */
+}
+.slick-next{
+    background: url('../img/right-arrow.png') no-repeat;
+    width: 32px; 
+    height: 32px; 
+    /* right: -65px !important; */
+}
+.slick-prev:before, .slick-next:before{content: '' !important;} 
+.slick-prev:hover, .slick-prev:focus, .slick-prev:visited{background: url('assets/img/left-arrow.png') no-repeat;}
+.slick-next:hover, .slick-next:focus, .slick-next:visited{background: url('assets/img/right-arrow.png') no-repeat;}
+@media (min-width: 320px) and (max-width: 480px) {
+  .slick-prev, .slick-next{
+      display: hide !important;
+  }
 }
 
 /**/

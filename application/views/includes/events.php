@@ -1,16 +1,4 @@
-<style>
-.slick-prev{
-    background: url('assets/img/left-arrow.png') no-repeat;
-    width: 48px; height: 48px; left: -65px !important;
-}
-.slick-next{
-    background: url('assets/img/right-arrow.png') no-repeat;
-    width: 48px; height: 48px; right: -65px !important;
-}
-.slick-prev:before, .slick-next:before{content: '' !important;} 
-.slick-prev:hover, .slick-prev:focus, .slick-prev:visited{background: url('assets/img/left-arrow.png') no-repeat;}
-.slick-next:hover, .slick-next:focus, .slick-next:visited{background: url('assets/img/right-arrow.png') no-repeat;}
-</style>
+
 <section id="events">
     <div class="container-fluid">
         <div class="row">

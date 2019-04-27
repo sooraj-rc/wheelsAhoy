@@ -9,11 +9,11 @@
             <div class="container">
                 <?php foreach($__blogs as $blog){ ?>
                 <div class="well">
-                    <div class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="<?php url('assets/uploads/blogs/'.$blog['blog_image']) ?>">
-                        </a>
-                        <div class="media-body blog-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="media-object rounded img-thumbnail" src="<?php url('assets/uploads/blogs/'.$blog['blog_image']) ?>">
+                        </div>
+                        <div class="col-md-8 blog-body">
                             <h4 class="media-heading blog-head"><strong><?php echo $blog['blog_title'] ?></strong></h4>
                             <p><?php echo $blog['blog_content'] ?></p>
                             <!-- <a href="">Read More</a> -->

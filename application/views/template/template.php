@@ -24,14 +24,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
   <!-- Plugin CSS -->
   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="<?php echo c('css_path_url'); ?>creative.min.css" rel="stylesheet">
-
   <!-- Slick -->
   <link href="<?php echo c('css_path_url'); ?>slick.css" rel="stylesheet">
   <link href="<?php echo c('css_path_url'); ?>slick-theme.css" rel="stylesheet">
-
+  <!-- Custom styles for this template -->
+  <link href="<?php echo c('css_path_url'); ?>creative.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -99,7 +96,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="container logo-12 my-auto text-center">
       <div class="row">
         <div class="col-lg-10 mx-auto">
-          <img src="assets/img/logo-1.png" class="logo-1" width="444px;" height="auto;" alt="" title="" media-simple="true">
+          <img src="assets/img/logo-1.png" class="logo-1 img-fluid" width="444px;" height="auto;" alt="" title="" media-simple="true">
         </div>
       </div>
     </div>
@@ -185,15 +182,47 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <script src="<?php echo c('js_path_url'); ?>creative.min.js"></script>
   <script src="<?php echo c('js_path_url'); ?>parallax.js"></script>
   <script>
+    var settings = [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ];
     $('.event1').slick({
       infinite: true,
       slidesToShow: 4,
-      slidesToScroll: 4
+      slidesToScroll: 4,      
+      autoplay: true,
+      responsive: settings
     });
     $('.event2').slick({
       infinite: true,
       slidesToShow: 4,
-      slidesToScroll: 4
+      slidesToScroll: 4,
+      autoplay: true,
+      responsive: settings
     });
   </script>
 </body>
