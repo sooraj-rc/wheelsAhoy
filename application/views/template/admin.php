@@ -130,8 +130,18 @@
                             <a href="<?php url('admin/c/story') ?>">
                                 <i class="fa fa-cubes"></i>
                                 <span>Manage Story</span>                                
+                            </a>                            
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cubes"></i>
+                                <span>Manage Portfolio</span>                                
                             </a>
-                            
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo admin_url() . 'portfolio'; ?>"><i class="fa fa-plus"></i> Manage Images</a>
+                                </li>                                
+                            </ul>
                         </li>
 
                         <li class="treeview">

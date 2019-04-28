@@ -18,10 +18,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php include('includes/clients.php') ?>
 
 <!-- 6. Testimonials section    -->
-<?php include('includes/testimonials.php') ?>
+<?php 
+if($__web_settings['testimonial_status'] == 1){
+    include('includes/testimonials.php');
+}
+?>
 
 <!-- 7. Blogs section    -->
-<?php include('includes/blogs.php') ?>
+<?php 
+if($__web_settings['blog_status'] == 1){
+    include('includes/blogs.php');
+} 
+?>
 
 <!-- 8. Events section    -->
-<?php include('includes/events.php') ?>
+<?php 
+if($__web_settings['event_status'] == 1){
+    include('includes/events.php');
+}
+?>

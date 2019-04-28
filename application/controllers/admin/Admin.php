@@ -28,6 +28,7 @@ class Admin extends CI_Controller
 		parent::__construct();
 		$this->load->model('admin/admin_model');
 		$this->gen_contents['dashboard_js'] = '';
+		$this->gen_contents['web_settings'] = $this->admin_model->get_web_settings();;
 	}
 
 	public function index()
@@ -292,6 +293,8 @@ class Admin extends CI_Controller
 
 		//rendering page
 		$this->gen_contents['page_heading'] = 'Clients';
+		$this->gen_contents['head_1'] 	= $this->admin_model->get_content_data('client_head_1');
+		$this->gen_contents['head_2'] 	= $this->admin_model->get_content_data('client_head_2');
 		$this->gen_contents['clients1'] = $this->admin_model->get_clients('builder');
 		$this->gen_contents['clients2'] = $this->admin_model->get_clients('truck');
 		//p($this->gen_contents['services'], true);
@@ -529,7 +532,7 @@ class Admin extends CI_Controller
 
 		//rendering page
 		$this->gen_contents['page_heading'] = 'Manage Events';
-		$this->gen_contents['events'] = $this->admin_model->get_events();
+		$this->gen_contents['events'] = $this->admin_model->get_events();		
 		$this->template->set_template('admin');
 		$this->template->write_view('content', $page, $this->gen_contents);
 		$this->template->render();
@@ -570,6 +573,78 @@ class Admin extends CI_Controller
 		echo $response;
 	}
 
+	public function updateWebsettings(){
+		$field = $this->input->post('__field');
+		//echo $field;
+		$response = $this->admin_model->update_web_settings($field);
+		//echo $response;
+	}
+
+	public function updateContentsbyFlag(){
+		$flag = $this->input->post('__flag');
+		$value = $this->input->post('__value');
+		//echo $flag; exit;
+		$cdata = array(
+			'flag' => $flag,
+			'value' => $value
+		);
+		//p($cdata);
+		$this->admin_model->update_content_data($cdata);
+	}
+
+
+	public function manage_portfolio($mode = "", $pid = "")
+	{
+		$page = 'admin/portfolio-manage';
+		//delete portfolio
+		if ($mode == "delete" && !empty($pid)) {
+			$pfdata = array(
+				'pid' => $pid
+			);
+			//p($eventdata,true);
+			$this->admin_model->process_portfolio("delete", $pfdata);
+			sf('success_message', 'Portfolio has been deleted successfully');
+			redirect("admin/portfolio");
+		}
+
+		//rendering page
+		$this->gen_contents['page_heading'] = 'Manage Portfolio';
+		$this->gen_contents['portfolio'] = $this->admin_model->get_portfolio();		
+		$this->template->set_template('admin');
+		$this->template->write_view('content', $page, $this->gen_contents);
+		$this->template->render();
+	}
+
+	//portfolio upload
+	public function portfolio_upload()
+	{
+
+		if (!empty($_FILES['file']['name'])) {
+
+			// Set preference
+			$config['upload_path'] = './assets/uploads/portfolio/';
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
+			$config['max_size'] = '5000'; // max_size in kb
+			$config['file_name'] = $_FILES['file']['name'];
+
+			//Load upload library
+			$this->load->library('upload', $config);
+
+			// File upload
+			if ($this->upload->do_upload('file')) {
+				// Get data about the file
+				$uploadData = $this->upload->data();
+				$image_name = $uploadData["file_name"];
+			}
+			$pfdata = array(
+				'image' => $image_name
+			);
+			$this->admin_model->process_portfolio('add', $pfdata);
+		}
+	}
+
+
+	
 
 
 	//***********************************************************************************

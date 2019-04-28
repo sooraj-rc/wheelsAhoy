@@ -38,8 +38,8 @@
                             <?php } ?>
                         </div>
                         <div class="form-group">
-                            <input type="radio" name="flag" value="builder" <?php if($clientdata['flag'] == 'builder') echo 'checked'; ?> required> Builder Clients 
-                            <input type="radio" name="flag" value="truck" <?php if($clientdata['flag'] == 'truck') echo 'checked'; ?> required> Truck Clients 
+                            <input type="radio" name="flag" value="builder" <?php if($clientdata['flag'] == 'builder') echo 'checked'; ?> required> First Client Section
+                            <input type="radio" name="flag" value="truck" <?php if($clientdata['flag'] == 'truck') echo 'checked'; ?> required> Second Client Section
                         </div>
                         
                         <div class="box-footer">

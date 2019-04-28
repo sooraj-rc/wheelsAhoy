@@ -9,8 +9,8 @@
         </div>
     </div>
     <div class="col-lg-12 text-center">
-        <strong>Wheels Ahoy !</strong><br><strong>
-            Your Passion Curators</strong>
+        <strong>Wheels Ahoy !</strong><br>
+        <strong>Follow our social page</strong>
         <div class="social-list pl-0 mb-0">
             <a href="http://www.instagram.com/wheelsahoy/" target="_blank">
                 <i class="fab fa-instagram" style="color: rgb(255, 127, 40);" media-simple="true"></i>

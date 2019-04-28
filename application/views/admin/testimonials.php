@@ -5,6 +5,7 @@
 		padding: 10px;
 	}
 </style>
+<link rel="stylesheet" href="<?php echo c('css_path_url'); ?>admin/switch.css">
 <div class="content-wrapper" style="min-height: 946px !important;">
 	<section class="content-header">
 		<h1> List Testimonials</h1>
@@ -22,6 +23,17 @@
 					<?php include('alert-message.php'); ?>
 					<a href="<?php url('admin/testimonials/add'); ?>" class="btn btn-info pull-right">Add Testimonial</a>
 				</div>
+				<table class="">
+					<tr>
+						<td style="vertical-align: top;"><h4 style="margin: 0px;">Testimonial section status is website: &nbsp;&nbsp;&nbsp;</h4></td>
+						<td>
+						<label class="switch">
+							<input value="<?php $web_settings['testimonial_status'] ?>" name="testimonial_status" class="link-onoff" <?php if($web_settings['testimonial_status'] == 1) echo 'checked'; ?> type="checkbox">
+							<div class="slider round"></div>
+						</label>
+						</td>
+					</tr>
+				</table>
 			</div>
 
 			<div class="box-body">

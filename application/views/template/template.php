@@ -120,29 +120,40 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </div>
       <div class="row">
         <div class="col-lg-10 mx-auto text-center">
-          <form id="contactForm" name="sentMessage" novalidate>
+          <form id="contactForm" name="sentMessage" method="POST">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" id="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name.">
+                  <input class="form-control" id="name" name="name" type="text" placeholder="Your Name *">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" id="email" type="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address.">
+                  <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number.">
+                  <input class="form-control" id="phone" name="phone" type="tel" placeholder="Your Phone *" >
                   <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <select name="country" id="country" class="form-control" style="height: 70px;">
+                    <option value="">Select your location</option>
+                    <?php foreach($__countries as $country) { ?>
+                      <option value="<?php echo $country['nicename'] ?>"><?php echo $country['nicename'] ?></option>
+                    <?php } ?>
+                  </select>
+                  
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <textarea class="form-control" id="message" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
+                  <textarea class="form-control" id="message" name="message" placeholder="Your Message *"></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -167,7 +178,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </div>
     </div>
   </section>
-
+  <input type="hidden" value="<?php url(); ?>" id="baseURL">
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -181,49 +192,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <!-- Custom scripts for this template -->
   <script src="<?php echo c('js_path_url'); ?>creative.min.js"></script>
   <script src="<?php echo c('js_path_url'); ?>parallax.js"></script>
+  <script src="<?php echo c('js_path_url'); ?>jquery.validate.min.js"></script>
+  <script src="<?php echo c('js_path_url'); ?>site.js"></script>
   <script>
-    var settings = [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-        // You can unslick at a given breakpoint now by adding:
-        // settings: "unslick"
-        // instead of a settings object
-      ];
-    $('.event1').slick({
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 4,      
-      autoplay: true,
-      responsive: settings
-    });
-    $('.event2').slick({
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      autoplay: true,
-      responsive: settings
-    });
+    
   </script>
 </body>
 

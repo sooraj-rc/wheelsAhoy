@@ -53,6 +53,7 @@ $route['default_controller'] = 'web';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['postContactAJAX'] = 'web/post_contact_form';
 
 //----------- admin common routing ------------
 $route['admin']             = "admin/user/index";
@@ -78,8 +79,14 @@ $route['admin/blogs']      = "admin/admin/manage_blogs";
 $route['admin/blogs/(:any)']         = "admin/admin/manage_blogs/$1";
 $route['admin/blogs/(:any)/(:any)']  = "admin/admin/manage_blogs/$1/$2";
 
-$route['admin/events']      = "admin/admin/manage_events";
-$route['admin/events/upload']      = "admin/admin/events_upload";
+$route['admin/events']              = "admin/admin/manage_events";
+$route['admin/events/upload']       = "admin/admin/events_upload";
 $route['admin/events/(:any)/(:any)']  = "admin/admin/manage_events/$1/$2";
-$route['admin/updateEventFlag_AJAX']      = "admin/admin/update_event_flag";
- 
+$route['admin/updateEventFlag_AJAX']  = "admin/admin/update_event_flag";
+
+$route['admin/updateWebsettings_AJAX']      = "admin/admin/updateWebsettings";
+$route['admin/updateContents_AJAX']      = "admin/admin/updateContentsbyFlag";
+
+$route['admin/portfolio']      = "admin/admin/manage_portfolio";
+$route['admin/portfolio/upload']      = "admin/admin/portfolio_upload";
+$route['admin/portfolio/(:any)/(:any)']  = "admin/admin/manage_portfolio/$1/$2";

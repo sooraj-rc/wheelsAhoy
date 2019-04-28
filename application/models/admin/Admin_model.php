@@ -112,6 +112,16 @@ class Admin_model extends CI_Model
 		}
 	}
 
+	public function update_content_data($cdata = array()){
+		$flag = $cdata['flag'];
+		$value = $cdata['value'];
+		$content_arr = array(
+			"contents" => $value
+		);
+		$this->db->where("flag", $flag);
+		$this->db->update("wa_page_contents", $content_arr);
+	}
+
 
 	// process clients - add/edit/delete
 	public function process_clients($mode, $clientsdata)
@@ -377,6 +387,87 @@ class Admin_model extends CI_Model
 		$this->db->update("wa_events", $data);
 		return $data['flag'];
 	}
+
+	
+	//upload portfolio
+	public function process_portfolio($mode = "", $pfdata = ""){
+		if($mode == "add"){
+			$pdata = array(
+				'image' => $pfdata['image']
+			);
+			$this->db->insert("wa_portfolio", $pdata);
+			return true;
+		}
+		if($mode == "delete"){
+			$pid = $pfdata['pid'];
+			$this->db->where("id", $pid);
+			$this->db->delete("wa_portfolio");
+			return true;
+			
+		}
+		
+	}
+	//Get web settings - / ON/OFF
+	function get_web_settings(){
+		$query = $this->db->select("*")
+				->where("id", 1)
+				->from('wa_web_settings')->get();	
+		$result = $query->row_array();
+		return $result;
+	}
+
+	public function get_countries()
+	{
+		$query = $this->db->select("*");		
+		$query = $query->from("wa_countries")->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->result_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
+
+	function update_web_settings($field = ""){			
+		$result = $this->get_web_settings();
+		//echo $result[$field];
+		if($result[$field] == 1){
+			$data = array(
+				$field => 0
+			);	
+		}
+		else{
+			$data = array(
+				$field => 1
+			);
+		}
+		//p($data);
+		$this->db->where("id", 1);
+		$this->db->update("wa_web_settings", $data);
+		return true;
+	}
+
+	//get portfolio
+	public function get_portfolio(){
+		$query = $this->db->select("*")->from("wa_portfolio")->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->result_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
+
+	//process contact us form
+	public function process_contact_form($data = array()){
+		if($this->db->insert("wa_contactus", $data)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
 
 
 	

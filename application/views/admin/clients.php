@@ -5,6 +5,7 @@
 		padding: 10px;
 	}
 </style>
+<link rel="stylesheet" href="<?php echo c('css_path_url'); ?>admin/switch.css">
 <div class="content-wrapper" style="min-height: 946px !important;">
 	<section class="content-header">
 		<h1> List Clients</h1>
@@ -22,10 +23,24 @@
 					<?php include('alert-message.php'); ?>
 					<a href="<?php url('admin/clients/add'); ?>" class="btn btn-info pull-right">Add Clients</a>
 				</div>
+				<table class="">
+					<tr>
+						<td style="vertical-align: top;"><h4 style="margin: 0px;">Clients section status is website: &nbsp;&nbsp;&nbsp;</h4></td>
+						<td>
+						<label class="switch">
+							<input value="<?php $web_settings['clients_status'] ?>" name="clients_status" class="link-onoff" <?php if($web_settings['clients_status'] == 1) echo 'checked'; ?> type="checkbox">
+							<div class="slider round"></div>
+						</label>
+						</td>
+					</tr>
+				</table>
 			</div>
 
 			<div class="box-body">
-				<h3>Builder Clients</h3>
+				<h3>
+					<input type="text" name="client_head_1" value="<?php echo $head_1['contents'] ?>">
+					<a href="javascript:;" data-name="client_head_1" class="updateChead btn btn-default">Update</a>
+				</h3>  
 				<?php foreach ($clients1 as $cli1) { ?>
 					<div class="col-md-3 text-center">
 						<div class="listbox">
@@ -40,7 +55,10 @@
 					</div>
 				<?php } ?>
 					<div class="clearfix"></div>
-				<h3>Truck Clients</h3>
+				<h3>
+					<input type="text" name="client_head_2" value="<?php echo $head_2['contents'] ?>">
+					<a href="javascript:;" data-name="client_head_2" class="updateChead btn btn-default">Update</a>
+				</h3> 
 				<?php foreach ($clients2 as $cli2) { ?>
 					<div class="col-md-3 text-center">
 						<div class="listbox">
