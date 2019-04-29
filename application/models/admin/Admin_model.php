@@ -468,7 +468,16 @@ class Admin_model extends CI_Model
 		}
 	}
 	
-
+	//get enquiries
+	public function get_enquiries(){
+		$query = $this->db->select("*,DATE_FORMAT(date_time, '%Y-%m-%d %h:%i %p') as datetime")->from("wa_contactus")->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->result_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
 
 	
 }

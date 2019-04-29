@@ -19,7 +19,9 @@ var settings = [
         breakpoint: 480,
         settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            // prevArrow: false,
+            // nextArrow: false
         }
     }
     // You can unslick at a given breakpoint now by adding:

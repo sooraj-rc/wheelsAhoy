@@ -139,7 +139,7 @@
                                 <span>Manage Portfolio</span>                                
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo admin_url() . 'portfolio'; ?>"><i class="fa fa-plus"></i> Manage Images</a>
+                                <li><a href="<?php echo admin_url() . 'portfolio'; ?>"><i class="fa fa-list"></i> Manage Images</a>
                                 </li>                                
                             </ul>
                         </li>
@@ -202,7 +202,18 @@
                                 <span>Manage Events</span>                                
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo admin_url() . 'events'; ?>"><i class="fa fa-plus"></i> Manage Events</a>
+                                <li><a href="<?php echo admin_url() . 'events'; ?>"><i class="fa fa-list"></i> Manage Events</a>
+                                </li>                                
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cubes"></i>
+                                <span>Manage Enquiries</span>                                
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo admin_url() . 'enquiries'; ?>"><i class="fa fa-list"></i> List Enquiries</a>
                                 </li>                                
                             </ul>
                         </li>

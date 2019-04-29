@@ -178,6 +178,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </div>
     </div>
   </section>
+  <button id="fixedbutton" class="btn btn-primary d-block d-sm-none"><i class="fa fa-phone" aria-hidden="true"></i> Call us</button>                    
   <input type="hidden" value="<?php url(); ?>" id="baseURL">
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

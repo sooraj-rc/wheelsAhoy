@@ -643,6 +643,14 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function list_enquiries(){
+		$this->gen_contents['page_heading'] = 'List Enquiries';
+		$this->gen_contents['enquiries'] = $this->admin_model->get_enquiries();		
+		$this->template->set_template('admin');
+		$this->template->write_view('content', 'admin/enquiries', $this->gen_contents);
+		$this->template->render();
+	}
+
 
 	
 

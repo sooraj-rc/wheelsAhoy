@@ -84,6 +84,8 @@ $route['admin/events/upload']       = "admin/admin/events_upload";
 $route['admin/events/(:any)/(:any)']  = "admin/admin/manage_events/$1/$2";
 $route['admin/updateEventFlag_AJAX']  = "admin/admin/update_event_flag";
 
+$route['admin/enquiries']              = "admin/admin/list_enquiries";
+
 $route['admin/updateWebsettings_AJAX']      = "admin/admin/updateWebsettings";
 $route['admin/updateContents_AJAX']      = "admin/admin/updateContentsbyFlag";
 

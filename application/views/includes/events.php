@@ -1,6 +1,6 @@
 <section id="events">
     <div class="container-fluid">
-        <div class="row">
+        <div class="container">
             <div class="col-lg-12 text-center">
                 <h1 class="section-heading">EVENTS</h1>
                 <hr class="my-4">

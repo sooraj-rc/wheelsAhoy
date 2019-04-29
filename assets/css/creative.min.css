@@ -513,6 +513,17 @@ header.masthead p {
     color: #6c757d!important;
     margin-bottom: 0!important;
 }
+.slick-prev:before, .slick-next:before{
+    color: #000 !important;
+}
+#fixedbutton {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    border-top-left-radius: 17px;
+    border-bottom-left-radius: 17px;
+    margin-bottom: 45px;
+}
 /* .slick-prev{
     background: url('../img/left-arrow.png') no-repeat;
     width: 32px; 
@@ -526,11 +537,11 @@ header.masthead p {
 .slick-prev:before, .slick-next:before{content: '' !important;} 
 .slick-prev:hover, .slick-prev:focus, .slick-prev:visited{background: url('../img/left-arrow.png') no-repeat;}
 .slick-next:hover, .slick-next:focus, .slick-next:visited{background: url('../img/right-arrow.png') no-repeat;} */
-@media (min-width: 320px) and (max-width: 480px) {
+/* @media (min-width: 320px) and (max-width: 480px) {
   .slick-prev, .slick-next{
       display: hide !important;
   }
-}
+} */
 
 #success{color:green;padding:10px;}
 
