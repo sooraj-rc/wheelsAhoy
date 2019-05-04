@@ -67,6 +67,10 @@ $route['admin/services']      = "admin/admin/manage_services";
 $route['admin/services/(:any)']         = "admin/admin/manage_services/$1";
 $route['admin/services/(:any)/(:any)']  = "admin/admin/manage_services/$1/$2";
 
+$route['admin/stocks']      = "admin/admin/manage_stocks";
+$route['admin/stocks/(:any)']         = "admin/admin/manage_stocks/$1";
+$route['admin/stocks/(:any)/(:any)']  = "admin/admin/manage_stocks/$1/$2";
+
 $route['admin/clients']      = "admin/admin/manage_clients";
 $route['admin/clients/(:any)']         = "admin/admin/manage_clients/$1";
 $route['admin/clients/(:any)/(:any)']  = "admin/admin/manage_clients/$1/$2";

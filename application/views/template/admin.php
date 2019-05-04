@@ -160,6 +160,19 @@
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-cubes"></i>
+                                <span>Manage Stocks</span>                                
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo admin_url() . 'stocks/add'; ?>"><i class="fa fa-plus"></i> Add Stock</a>
+                                </li>
+                                <li><a href="<?php echo admin_url() . 'stocks'; ?>"><i class="fa fa-list"></i> List Stocks</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cubes"></i>
                                 <span>Manage Clients</span>                                
                             </a>
                             <ul class="treeview-menu">

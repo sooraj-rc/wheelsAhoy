@@ -49,6 +49,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a class="nav-link js-scroll-trigger" href="#services">Ahoy Services</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#stocks">Ahoy Stocks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#clients">Clients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#testimonials">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#blogs">Blogs</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Talk TO Ahoy</a>
           </li>
           <!-- <li class="nav-item dropdown">
@@ -124,6 +136,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
+                  <select name="contact_for" id="contact_for" class="form-control" style="height: 70px;">
+                    <option value="">Contact us concerning *</option>
+                    <option value="I want to build a food truck">I want to build a food truck</option>                    
+                    <option value="I want to sell my food truck">I want to sell my food truck</option>                    
+                    <option value="I want food truck in my event">I want food truck in my event</option>                    
+                    <option value="Others">Others</option>                    
+                  </select>                  
+                </div>
+              </div>
+              <div class="col-md-6"></div>
+              <div class="col-md-6">
+                <div class="form-group">
                   <input class="form-control" id="name" name="name" type="text" placeholder="Your Name *">
                   <p class="help-block text-danger"></p>
                 </div>
@@ -178,7 +202,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </div>
     </div>
   </section>
-  <button id="fixedbutton" class="btn btn-primary d-block d-sm-none"><i class="fa fa-phone" aria-hidden="true"></i> Call us</button>                    
+  <a href="tel:+971585002469" id="fixedbutton" class="btn btn-primary d-block d-sm-none"><i class="fa fa-phone" aria-hidden="true"></i> Call us</a>                    
   <input type="hidden" value="<?php url(); ?>" id="baseURL">
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

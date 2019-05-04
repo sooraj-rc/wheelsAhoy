@@ -17,6 +17,7 @@ class Web extends CI_Controller
 
                 $this->gen_contents['__story']          = $this->admin_model->get_content_data('story'); // get story
                 $this->gen_contents['__services']       = $this->admin_model->get_services(); // get services
+                $this->gen_contents['__stocks']         = $this->admin_model->get_stocks(); // get stocks
                 $this->gen_contents['__clients_builder']= $this->admin_model->get_clients('builder'); // get builder clients
                 $this->gen_contents['__clients_truck']  = $this->admin_model->get_clients('truck'); // get truck clients
                 $this->gen_contents['__testimonials']   = $this->admin_model->get_testimonials(); // get testimonials
@@ -36,6 +37,7 @@ class Web extends CI_Controller
                         'phone' => $this->input->post('phone'),
                         'country' => $this->input->post('country'),
                         'message' => $this->input->post('message'),
+                        'contact_for' => $this->input->post('contact_for')
                 );
                 //p($data);
                 $op = $this->admin_model->process_contact_form($data);

@@ -12,7 +12,7 @@
         <ol class="breadcrumb">
             <li><a href="<?php url('admin'); ?>"><i class="fa fa-dashboard"></i> </a></li>
             <li><a href="<?php url('admin/services');?>">List services </a></li>
-            <li class="breadcrumb-item active"><?php if(!empty($servicedata)){ echo 'Edit Serice'; } else {  echo 'Add Service'; } ?></li>
+            <li class="breadcrumb-item active"><?php if(!empty($servicedata)){ echo 'Edit Service'; } else {  echo 'Add Service'; } ?></li>
         </ol>
     </section>
 

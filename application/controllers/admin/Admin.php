@@ -158,6 +158,113 @@ class Admin extends CI_Controller
 		$this->template->render();
 	}
 
+	//Manage Stocks
+	public function manage_stocks($mode = "", $sid = "")
+	{
+		(!$this->authentication->check_logged_in("admin", false)) ? redirect('admin') : '';
+		//$mode = $this->input->post('mode',true);         
+		$page = 'admin/stocks';
+		$this->load->model('admin/admin_model');
+
+		// Category add area
+		if ($mode == "add") {
+			$page = 'admin/stocks-add';
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('title', 'Stock Title', 'required');
+			if ($this->form_validation->run() == TRUE) {
+				$title = $this->input->post("title", true);
+				// --------- if image not null the upload file -------------
+				$image_name = "";
+				if (!empty($_FILES['stock_image']['name'])) {
+					//p($_FILES['service_image'],true);                   
+					$config['upload_path']          = './assets/uploads/stocks/';
+					$config['allowed_types']        = 'jpg|png';
+					$config['encrypt_name'] = TRUE;
+					$this->load->library('upload', $config);
+					if ($this->upload->do_upload('stock_image')) {
+						$upload_detail = $this->upload->data();
+						//p($upload_detail,true);
+						$image_name = $upload_detail["file_name"];
+					}
+				}
+				//----------------------------------------------------------
+				$stockdata = array(
+					"title" => $title,
+					//'slug'  => url_title($title, 'dash', true),
+					'descr'  => $this->input->post("descr", true),
+					'stock_image' => $image_name
+				);
+				$response = $this->admin_model->process_stocks("add", $stockdata);
+				if ($response == "added") {
+					sf('success_message', 'New stock has been added successfully');
+					redirect("admin/stocks");
+				} else if ($response == "exists") {
+					sf('error_message', 'Sorry! This stock name already exists');
+				}
+			}
+		}
+		// Category edit area
+		if ($mode == "edit") {
+			$page = 'admin/stocks-add';
+			$stockdata = $this->admin_model->get_stock_data($sid);
+			//p($servicedata,true);
+			$this->gen_contents['stockdata'] = $stockdata;
+
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('title', 'Stock title', 'required');
+			if ($this->form_validation->run() == TRUE) {
+				$title = $this->input->post("title", true);
+				// --------- if image not null the upload file -------------
+				$image_name = "";
+				if (!empty($_FILES['stock_image']['name'])) {
+					$config['upload_path']          = './assets/uploads/stocks/';
+					$config['allowed_types']        = 'jpg|png';
+					$config['encrypt_name'] = TRUE;
+					$this->load->library('upload', $config);
+					if ($this->upload->do_upload('stock_image')) {
+						$upload_detail = $this->upload->data();
+						$image_name = $upload_detail["file_name"];
+					}
+				} else {
+					$image_name = $this->input->post("stock_image", true);
+				}
+				//----------------------------------------------------------
+				$stockdata = array(
+					"title"     => $title,
+					"id"     => $this->input->post("id", true),
+					//"slug"      => url_title($title, 'dash', true),
+					'descr'  => $this->input->post("descr", true),
+					"stock_image"  => $image_name
+				);
+				$response = $this->admin_model->process_stocks("edit", $stockdata);
+				//echo $response; exit;
+				if ($response == "edited") {
+					sf('success_message', 'Stock has been updated successfully');
+					redirect("admin/stocks");
+				} else if ($response == "exists") {
+					sf('error_message', 'Sorry! This service name already exists');
+				}
+			}
+		}
+		// Category delete area
+		if ($mode == "delete" && !empty($sid)) {
+			$stockdata = array(
+				'id' => $sid
+			);
+			$response = $this->admin_model->process_stocks("delete", $stockdata);
+			sf('success_message', 'Stock has been deleted successfully');
+			redirect("admin/stocks");
+		}
+		//echo "hhhhh"; exit;
+		//rendering page
+		$this->gen_contents['page_heading'] = 'Stocks';
+		$this->gen_contents['stocks'] = $this->admin_model->get_stocks();
+		//p($this->gen_contents['services'], true);
+		$this->template->set_template('admin');
+		$this->template->write_view('content', $page, $this->gen_contents);
+		$this->template->render();
+	}
+
 
 	public function manage_contents($flag = "")
 	{

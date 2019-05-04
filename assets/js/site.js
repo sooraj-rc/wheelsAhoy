@@ -59,6 +59,10 @@ $('.c2').slick({
 
 //---- Blog Readmore
 $(document).ready(function () {
+    // $(".nav-link").click(function(){
+    //     $(".nav-link").removeClass('active');
+    //     $(this).addClass('active');
+    // });
     $(".readMore").click(function () {
         var __new_element = ".newContentShow" + $(this).data("id");
         var __old_element = ".oldContentShow" + $(this).data("id");
@@ -95,13 +99,17 @@ $(document).ready(function () {
             },
             message: {
                 required: true,                
+            },
+            contact_for: {
+                required: true,                
             }
         },
         messages: {
             name: "Please enter your name.",
             email: "Please enter your email address.",
             phone: "Please enter your phone number.",
-            message: "Please enter a message."
+            message: "Please enter a message.",
+            contact_for: "Please choose an option.",
         },
         submitHandler: function (form) { 
             var formObj = {
@@ -109,7 +117,8 @@ $(document).ready(function () {
                 email: $("#email").val(),
                 phone: $("#phone").val(),
                 country: $("#country").val(),
-                message: $("#message").val()
+                message: $("#message").val(),
+                contact_for: $("#contact_for").val()
             }
             console.log(formObj);
             var postURL = $("#baseURL").val()+'postContactAJAX'

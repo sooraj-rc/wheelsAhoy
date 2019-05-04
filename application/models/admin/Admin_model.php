@@ -80,6 +80,75 @@ class Admin_model extends CI_Model
 		}
 	}
 
+	//function to get tour categories
+	public function get_stocks()
+	{
+		$query = $this->db->select("*")
+			->from("wa_stocks")
+			->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->result_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
+
+	public function get_stock_data($sid = "")
+	{
+		$query = $this->db->select("*")
+			->where("id", $sid)
+			->from("wa_stocks")
+			->get();
+		if ($query->num_rows() > 0) {
+			$result = $query->row_array();
+			return $result;
+		} else {
+			return '';
+		}
+	}
+
+	// process stocks - add/edit/delete
+	public function process_stocks($mode, $servicedata)
+	{
+		$title    = $servicedata['title'];
+		$sid      = $servicedata['id'];
+		$sdata = array(
+			"title" => $title,
+			"descr" => $servicedata['descr'],
+			"stock_image" => $servicedata['stock_image']
+		);
+
+		if ($mode == "add") {
+			$this->db->select("*");
+			$this->db->from("wa_stocks");
+			$this->db->where("title", $title);
+			$query = $this->db->get();
+			if ($query->num_rows() == 0) {
+				$this->db->insert("wa_stocks", $sdata);
+				return "added";
+			} else {
+				return "exists";
+			}
+		}
+		if ($mode == "edit") {
+			$this->db->select("*");
+			$this->db->from("wa_stocks");
+			$this->db->where("id", $sid);
+			$query = $this->db->get();
+			if ($query->num_rows() == 1) {
+				$this->db->where("id", $sid);
+				$this->db->update("wa_stocks", $sdata);
+				return "edited";
+			}
+		}
+		if ($mode == "delete") {
+			$this->db->where("id", $sid);
+			$this->db->delete("wa_stocks");
+			return "deleted";
+		}
+	}
+
 	public function get_content_data($flag = "")
 	{
 		$query = $this->db->select("*")

@@ -11,6 +11,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- 3. Services section    -->
 <?php include('includes/services.php') ?>
 
+<!-- 3.1. Stock section    -->
+<?php include('includes/stocks.php') ?>
+
 <!-- 4. What-we-have section    -->
 <?php include('includes/whatwehave.php') ?>
 

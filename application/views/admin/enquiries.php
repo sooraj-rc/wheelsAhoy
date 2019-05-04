@@ -34,24 +34,26 @@
 				<table class="table" id="enQ">
                 <thead>
                     <tr>
-                        <th>#</th>
+						<th>#</th>
+						<th>Concern</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Country</th>
-                        <th>Message</th>
+                        <th>Message</th>                        
                         <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i=1; foreach($enquiries as $enq) { ?>
                         <tr>
-                            <td><?php echo $i++; ?></td>
+							<td><?php echo $i++; ?></td>
+							<td><?php echo $enq['contact_for']; ?></td>
                             <td><?php echo $enq['name']; ?></td>
                             <td><?php echo $enq['email']; ?></td>
                             <td><?php echo $enq['phone']; ?></td>
                             <td><?php echo $enq['country']; ?></td>
-                            <td><?php echo $enq['message']; ?></td>
+                            <td><?php echo $enq['message']; ?></td>                            
                             <td><?php echo $enq['datetime']; ?></td>
                         </tr>
                     <?php } ?>
