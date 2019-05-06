@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>WheelsAhoy Admin | Dashboard</title>
+        <link rel="shortcut icon" href="<?php echo c('assets_url'); ?>img/wheels-ahoy-png-compressed-favicon-128x128.png" type="image/x-icon">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="<?php echo c('css_path_url'); ?>admin/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo c('css_path_url'); ?>admin/dataTables.bootstrap.css">
@@ -160,12 +161,12 @@
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-cubes"></i>
-                                <span>Manage Stocks</span>                                
+                                <span>Manage Market</span>                                
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo admin_url() . 'stocks/add'; ?>"><i class="fa fa-plus"></i> Add Stock</a>
+                                <li><a href="<?php echo admin_url() . 'stocks/add'; ?>"><i class="fa fa-plus"></i> Add Market</a>
                                 </li>
-                                <li><a href="<?php echo admin_url() . 'stocks'; ?>"><i class="fa fa-list"></i> List Stocks</a>
+                                <li><a href="<?php echo admin_url() . 'stocks'; ?>"><i class="fa fa-list"></i> List Market</a>
                                 </li>
                             </ul>
                         </li>

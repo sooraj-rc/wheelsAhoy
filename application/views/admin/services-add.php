@@ -45,6 +45,10 @@
                             <img src="<?php echo_image('uploads/services/'.$servicedata['service_image']) ?>" class="img-responsive" width="250">
                             <?php } ?>
                         </div>
+                        <div class="form-group">
+                            <label>Show contact button: </label>
+                            <input type="checkbox" value="1" name="btn_status" <?php if($servicedata['btn_status'] == 1) echo 'checked'; ?>>
+                        </div>
                         
                         <div class="box-footer">
                             <?php if(!empty($servicedata)) { ?>

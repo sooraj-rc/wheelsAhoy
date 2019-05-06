@@ -8,11 +8,11 @@
 </style>
 <div class="content-wrapper" style="min-height: 946px !important;">
     <section class="content-header">
-        <h1> <?php if(!empty($stockdata)){ echo 'Edit Stock';}  else { echo 'Add Stock';} ?></h1>
+        <h1> <?php if(!empty($stockdata)){ echo 'Edit Market';}  else { echo 'Add Market';} ?></h1>
         <ol class="breadcrumb">
             <li><a href="<?php url('admin'); ?>"><i class="fa fa-dashboard"></i> </a></li>
-            <li><a href="<?php url('admin/services');?>">List services </a></li>
-            <li class="breadcrumb-item active"><?php if(!empty($stockdata)){ echo 'Edit Stock'; } else {  echo 'Add Stock'; } ?></li>
+            <li><a href="<?php url('admin/stocks');?>">List markets </a></li>
+            <li class="breadcrumb-item active"><?php if(!empty($stockdata)){ echo 'Edit Market'; } else {  echo 'Add Market'; } ?></li>
         </ol>
     </section>
 
@@ -29,17 +29,17 @@
                     <form role="form" method="POST" action="<?php if(!empty($stockdata)) {$mode = 'edit';} else {$mode = 'add';} url('admin/stocks/'.$mode); ?>" enctype="multipart/form-data">
 
                         <div class="form-group">
-                            <label>Stock Title <span class="error">*</span>: </label>
-                            <input type="text" value="<?php echo $stockdata['title'] ?>"  class="form-control" name="title" placeholder="Service Title" required>                                            
+                            <label>Market Title <span class="error">*</span>: </label>
+                            <input type="text" value="<?php echo $stockdata['title'] ?>"  class="form-control" name="title" placeholder="Market Title" required>                                            
                         </div>
                         <div class="form-group">
-                            <label>Stock Description</label>
+                            <label>Market Description</label>
                             <textarea class="form-control textarea2" name="descr" placeholder=""><?php echo $stockdata['descr'] ?></textarea>                                            
                         </div>
                         
                         <div class="form-group">
-                            <label>Stock Image: </label>
-                            <input type="file" class="form-control" name="stock_image" placeholder="Stock Image">
+                            <label>Market Image: </label>
+                            <input type="file" class="form-control" name="stock_image" placeholder="Market Image">
                                            
                             <?php if(!empty($stockdata['stock_image'])) { ?>
                             <img src="<?php echo_image('uploads/stocks/'.$stockdata['stock_image']) ?>" class="img-responsive" width="250">
@@ -55,7 +55,7 @@
                             <input type="hidden" name="mode" value="add">
                             <?php } ?>
                             <button type="submit" class="btn btn-info pull-right">
-                                <?php if(!empty($stockdata)) { ?> Update Stock <?php } else { ?> Add New Stock <?php } ?>
+                                <?php if(!empty($stockdata)) { ?> Update Market <?php } else { ?> Add New Market <?php } ?>
                             </button>                                    
                         </div>
                     </form>

@@ -70,7 +70,7 @@ $(document).ready(function () {
         if (__flag == "more") {
             $(__old_element).hide();
             $(__new_element).show();
-            $(this).text("Read Less");
+            $(this).text("Show Less");
             $(this).data('flag', 'less');
             //console.log($(this).data('flag'));
         }
@@ -112,26 +112,53 @@ $(document).ready(function () {
             contact_for: "Please choose an option.",
         },
         submitHandler: function (form) { 
-            var formObj = {
-                name: $("#name").val(),
-                email: $("#email").val(),
-                phone: $("#phone").val(),
-                country: $("#country").val(),
-                message: $("#message").val(),
-                contact_for: $("#contact_for").val()
-            }
-            console.log(formObj);
-            var postURL = $("#baseURL").val()+'postContactAJAX'
-            $.post(postURL, formObj, function(response){
-                console.log(response);
-                if(response == "success"){
-                    $('#contactForm')[0].reset();
-                    $("#success").html("Thank you! We will get back to you soon.");
-                }
-                else{
-                    $("#error").html("Sorry! Something went wrong, try again.");
-                }
-            });
+            //alert("HEllo");
+            form.submit();
+            
         }
     });
+
+    $("#contact_for_id").change(function(){
+        var contact_for_txt = $(this).find("option:selected").text();
+        var contact_for = $(this).val();
+        $("#contact_for").val(contact_for_txt);
+        //console.log(contact_for);
+        if(contact_for == 2){
+            $("#truck_imageID").show();
+            $("#agreeID").show();            
+        }
+        else{
+            $("#truck_imageID").hide();
+            $("#agreeID").hide();            
+        }
+    });
+
+    setTimeout(function(){
+        $(".alert").fadeOut('slow');
+    },3000);
+
 });
+
+// var formObj = {
+//     name: $("#name").val(),
+//     email: $("#email").val(),
+//     phone: $("#phone").val(),
+//     country: $("#country").val(),
+//     message: $("#message").val(),
+//     contact_for: $("#contact_for").val(),
+//     truck_image: $('#truck_image')[0].files[0]
+// }
+// console.log(formObj);
+// alert(formObj);
+// var postURL = $("#baseURL").val()+'postContactAJAX'
+// $.post(postURL, formObj, function(response){
+//     //console.log(response);
+//     if(response == "success"){
+//         $('#contactForm')[0].reset();
+//         $("#success").html("Thank you! We will get back to you soon.");
+//     }
+//     else{
+//         $("#error").html("Sorry! Something went wrong, try again.");
+//     }
+// });
+// return;

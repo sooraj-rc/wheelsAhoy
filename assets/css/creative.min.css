@@ -527,6 +527,9 @@ header.masthead p {
     border-bottom-left-radius: 17px;
     margin-bottom: 45px;
 }
+#stocks h4{
+    margin-top:18px !important;
+}
 /* .slick-prev{
     background: url('../img/left-arrow.png') no-repeat;
     width: 32px; 
@@ -540,11 +543,12 @@ header.masthead p {
 .slick-prev:before, .slick-next:before{content: '' !important;} 
 .slick-prev:hover, .slick-prev:focus, .slick-prev:visited{background: url('../img/left-arrow.png') no-repeat;}
 .slick-next:hover, .slick-next:focus, .slick-next:visited{background: url('../img/right-arrow.png') no-repeat;} */
-/* @media (min-width: 320px) and (max-width: 480px) {
-  .slick-prev, .slick-next{
+@media (min-width: 320px) and (max-width: 480px) {
+  /* .slick-prev, .slick-next{
       display: hide !important;
-  }
-} */
+  } */
+  .logo-1{width: 250px !important;}
+}
 
 #success{color:green;padding:10px;}
 

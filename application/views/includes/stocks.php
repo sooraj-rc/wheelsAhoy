@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1 class="section-heading">AHOY STOCKS</h1>
+                <h1 class="section-heading">AHOY MARKET</h1>
                 <hr class="my-4">
                 <p class="mbr-text align-center pb-3 mbr-fonts-style display-7">Tell us about yourself and we’ll tell you how we can help!!!</p>
             </div>

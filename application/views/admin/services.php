@@ -36,6 +36,7 @@
                             <img src="<?php echo_image('uploads/services/'.$ser['service_image']); ?>" class="img-responsive">
                             <h3><?php echo $ser['title']; ?></h3>
                             <p><?php echo $ser['descr'] ?></p>
+                            <p><?php if($ser['btn_status'] == 1) {?> <a href="#" class="btn btn-warning btn-sm">Contact Us</a>  <?php } ?></p>
                         </div>
                     </div>
                 <?php } ?>

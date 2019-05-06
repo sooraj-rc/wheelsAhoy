@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="col-lg-12 text-center">
-        <strong>Wheels Ahoy !</strong><br>
+        <!-- <strong>Wheels Ahoy !</strong><br> -->
         <strong>Follow our social page</strong>
         <div class="social-list pl-0 mb-0">
             <a href="http://www.instagram.com/wheelsahoy/" target="_blank">

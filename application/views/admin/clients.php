@@ -25,7 +25,7 @@
 				</div>
 				<table class="">
 					<tr>
-						<td style="vertical-align: top;"><h4 style="margin: 0px;">Clients section status is website: &nbsp;&nbsp;&nbsp;</h4></td>
+						<td style="vertical-align: top;"><h4 style="margin: 0px;">Clients section status in website: &nbsp;&nbsp;&nbsp;</h4></td>
 						<td>
 						<label class="switch">
 							<input value="<?php $web_settings['clients_status'] ?>" name="clients_status" class="link-onoff" <?php if($web_settings['clients_status'] == 1) echo 'checked'; ?> type="checkbox">

@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Web extends CI_Controller
 {
         public function __construct()
-        {
+        {                     
                 parent::__construct();
                 $this->load->model('admin/admin_model');
         }
@@ -31,16 +31,91 @@ class Web extends CI_Controller
         }
 
         public function post_contact_form(){
+                
+                
+                if(!empty($_FILES['truck_image']['name'])) {                                        
+                        $config['upload_path']          = './assets/uploads/user-trucks/';
+                        $config['allowed_types']        = 'jpg|png';
+                        $config['encrypt_name'] = TRUE;
+                        $this->load->library('upload', $config);
+                        if ($this->upload->do_upload('truck_image')) {
+                                $upload_detail = $this->upload->data();                        
+                                $truck_image = $upload_detail["file_name"];
+                        }
+                }
+                //p($this->input->post(),true);
                 $data = array(
                         'name' => $this->input->post('name'),
                         'email' => $this->input->post('email'),
                         'phone' => $this->input->post('phone'),
                         'country' => $this->input->post('country'),
                         'message' => $this->input->post('message'),
-                        'contact_for' => $this->input->post('contact_for')
+                        'contact_for' => $this->input->post('contact_for'),
+                        'truck_image'  => $truck_image
                 );
-                //p($data);
                 $op = $this->admin_model->process_contact_form($data);
-                if($op) echo "success"; else echo "failed";
+                if($op) {
+                        //echo "success";     
+                        $mail_data = get_contact_maildata($data);                        
+                        $mail_content = get_mail_content($mail_data);
+                        //echo $mail_content; exit;
+                        $to = "soorajsolutino@gmail.com";
+                        $subject = "Received and enquiry from WheelsAhoy";
+                        $this->sendMail($to, $subject, $mail_content);
+                        sf('success_message', 'Thank you! We will get back to you soon.');
+		        redirect("#contact");
+                } else { 
+                        //echo "failed";
+                        sf('err_message', 'Sorry! Something went wrong, try again.');
+		        redirect("#contact");
+                }
+        }
+
+
+        function sendMail($to = "", $subject = "", $content = ""){
+                // Load PHPMailer library
+                $this->load->library('phpmailer_lib');
+
+                // PHPMailer object
+                $mail = $this->phpmailer_lib->load();
+
+                // SMTP configuration
+                $mail->isSMTP();                
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'soorajsolutino@gmail.com';
+                $mail->Password = 'srjsolutino';
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = 587;
+
+                $from_email = "info@wheelsahoy.com";
+                $from_name = "Wheels Ahoy";
+
+                $mail->setFrom($from_email, $from_name);
+                //$mail->addReplyTo('info@example.com', 'CodexWorld');
+
+                // Add a recipient
+                $mail->addAddress($to);
+
+                // Add cc or bcc 
+                //$mail->addCC('cc@example.com');
+                //$mail->addBCC('bcc@example.com');
+
+                // Email subject
+                $mail->Subject = $subject;
+
+                // Set email format to HTML
+                $mail->isHTML(true);
+
+                // Email body content
+                $mail->Body = $content;
+
+                // Send email
+                if (!$mail->send()) {                        
+                        //echo $mail->ErrorInfo;
+                        return false;
+                } else {
+                        return true;
+                }
         }
 }

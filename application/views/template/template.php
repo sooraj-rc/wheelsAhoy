@@ -36,7 +36,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">WheelsAhoy</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Wheels Ahoy</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a class="nav-link js-scroll-trigger" href="#services">Ahoy Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#stocks">Ahoy Stocks</a>
+            <a class="nav-link js-scroll-trigger" href="#stocks">Ahoy Market</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#clients">Clients</a>
@@ -59,6 +59,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#blogs">Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#events">Events</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Talk TO Ahoy</a>
@@ -119,80 +122,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <div class="parallax-window" data-parallax="scroll" data-image-src="assets/img/header.gif"></div>
   <!-- <div class="parallax"></div> -->
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h1 class="section-heading text-uppercase">TALK TO AHOY</h1>
-          <hr>
-          <p class="text-muted mb-0">You feel we can be helpful to you? Then say AHOY and talk to us.
-            And see how we can be your passion curators.<br>Fill the below form or call<strong>+971 58 500 AHOY (2469)</strong><br>or drop in a mail at <strong>info@wheelsahoy.com</strong><br></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-10 mx-auto text-center">
-          <form id="contactForm" name="sentMessage" method="POST">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <select name="contact_for" id="contact_for" class="form-control" style="height: 70px;">
-                    <option value="">Contact us concerning *</option>
-                    <option value="I want to build a food truck">I want to build a food truck</option>                    
-                    <option value="I want to sell my food truck">I want to sell my food truck</option>                    
-                    <option value="I want food truck in my event">I want food truck in my event</option>                    
-                    <option value="Others">Others</option>                    
-                  </select>                  
-                </div>
-              </div>
-              <div class="col-md-6"></div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input class="form-control" id="name" name="name" type="text" placeholder="Your Name *">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input class="form-control" id="phone" name="phone" type="tel" placeholder="Your Phone *" >
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <select name="country" id="country" class="form-control" style="height: 70px;">
-                    <option value="">Select your location</option>
-                    <?php foreach($__countries as $country) { ?>
-                      <option value="<?php echo $country['nicename'] ?>"><?php echo $country['nicename'] ?></option>
-                    <?php } ?>
-                  </select>
-                  
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <textarea class="form-control" id="message" name="message" placeholder="Your Message *"></textarea>
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-lg-12 text-center">
-              <div id="success"></div>
-              <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
-            </div>
-        </div>
-        </form>
-      </div>
-    </div>
-    </div>
-  </section>
+  <?php $this->load->view('includes/contact.php'); ?>
+
   <section class="footer">
     <div class="container">
       <div class="col-lg-12 text-center">

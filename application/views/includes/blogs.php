@@ -16,12 +16,12 @@
                         <div class="col-md-8 blog-body">
                             <h4 class="media-heading blog-head"><strong><?php echo $blog['blog_title'] ?></strong></h4>
                             <div class="oldContentShow<?php echo $blog['id'] ?>">
-                                <?php echo substr($blog['blog_content'],0,500) ?>
+                                <?php echo substr($blog['blog_content'],0,550) ?>...
                             </div>
                             <div class="newContentShow<?php echo $blog['id'] ?>" style="display:none;">
                                 <?php echo $blog['blog_content'] ?>
                             </div>
-                            <?php if(strlen($blog['blog_content']) > 500) { ?><a href="javascript:;" data-id="<?php echo $blog['id'] ?>" data-flag="more" class="readMore">Read More</a> <?php } ?>
+                            <?php if(strlen($blog['blog_content']) > 550) { ?><a href="javascript:;" data-id="<?php echo $blog['id'] ?>" data-flag="more" class="readMore">Read More</a> <?php } ?>
                         </div>
                     </div>
                 </div>

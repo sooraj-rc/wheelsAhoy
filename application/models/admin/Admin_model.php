@@ -47,7 +47,8 @@ class Admin_model extends CI_Model
 		$sdata = array(
 			"title" => $title,
 			"descr" => $servicedata['descr'],
-			"service_image" => $servicedata['service_image']
+			"service_image" => $servicedata['service_image'],
+			"btn_status" => $servicedata['btn_status']
 		);
 
 		if ($mode == "add") {

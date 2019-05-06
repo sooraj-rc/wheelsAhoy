@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('template', 'database', 'email', 'session', 'authentication');
+$autoload['libraries'] = array('template', 'database', 'email', 'session', 'authentication', 'Phpmailer_lib');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','file','form','common');
+$autoload['helper'] = array('url','file','form','common','web');
 
 /*
 | -------------------------------------------------------------------

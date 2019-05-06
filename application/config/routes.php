@@ -53,7 +53,9 @@ $route['default_controller'] = 'web';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['postContactAJAX'] = 'web/post_contact_form';
+//$route['postContactAJAX'] = 'web/post_contact_form';
+$route['postContact'] = 'web/post_contact_form';
+$route['send-test-mail'] = 'web/sendMail';
 
 //----------- admin common routing ------------
 $route['admin']             = "admin/user/index";

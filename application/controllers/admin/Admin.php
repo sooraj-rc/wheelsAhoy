@@ -83,7 +83,7 @@ class Admin extends CI_Controller
 				//----------------------------------------------------------
 				$servicedata = array(
 					"title" => $title,
-					//'slug'  => url_title($title, 'dash', true),
+					'btn_status'  => $this->input->post("btn_status", true),
 					'descr'  => $this->input->post("descr", true),
 					'service_image' => $image_name
 				);
@@ -125,7 +125,7 @@ class Admin extends CI_Controller
 				$servicedata = array(
 					"title"     => $title,
 					"id"     => $this->input->post("id", true),
-					//"slug"      => url_title($title, 'dash', true),
+					'btn_status'  => $this->input->post("btn_status", true),
 					'descr'  => $this->input->post("descr", true),
 					"service_image"  => $image_name
 				);
