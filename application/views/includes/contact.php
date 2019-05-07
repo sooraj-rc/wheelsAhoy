@@ -74,7 +74,8 @@
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group" id="agreeID" style="display:none;">
-                  <input type="checkbox" name="agree_img-show" id="agreeImgShow"> I have no objection to display my truck image in your website.
+                  <input type="checkbox" name="agree_img-show" id="agreeImgShow"> By clicking this button you agree that you have no objection in displaying the images you 
+have provided, in our website. We will return them when we sell your truck successfully.
                 </div>
               </div>
             </div>

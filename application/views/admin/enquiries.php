@@ -48,7 +48,12 @@
                     <?php $i=1; foreach($enquiries as $enq) { ?>
                         <tr>
 							<td><?php echo $i++; ?></td>
-							<td><?php echo $enq['contact_for']; ?></td>
+							<td>
+								<?php echo $enq['contact_for']; ?> <br>
+								<?php if(!empty($enq['truck_image'])) { ?>
+									<a href="<?php url('assets/uploads/user-trucks/'.$enq['truck_image']) ?>" target="_new" >Truck Image</a>
+								<?php } ?>
+							</td>
                             <td><?php echo $enq['name']; ?></td>
                             <td><?php echo $enq['email']; ?></td>
                             <td><?php echo $enq['phone']; ?></td>

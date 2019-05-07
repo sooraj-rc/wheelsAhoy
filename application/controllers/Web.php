@@ -59,7 +59,8 @@ class Web extends CI_Controller
                         $mail_data = get_contact_maildata($data);                        
                         $mail_content = get_mail_content($mail_data);
                         //echo $mail_content; exit;
-                        $to = "soorajsolutino@gmail.com";
+                        //$to = "soorajsolutino@gmail.com";
+                        $to = "webenquiries@wheelsahoy.com";
                         $subject = "Received and enquiry from WheelsAhoy";
                         $this->sendMail($to, $subject, $mail_content);
                         sf('success_message', 'Thank you! We will get back to you soon.');
