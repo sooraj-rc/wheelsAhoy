@@ -1,5 +1,14 @@
 <style>
-    #clients img{margin: auto !important;}
+    #clients img{margin: auto !important;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    bottom: 0;}
+    .cimg{
+    width: 210px;
+    height: 210px;
+    margin: auto;
+    position: relative;}
 </style>
 <section id="clients">
     <div class="container-fluid">
@@ -15,7 +24,9 @@
                 <div class="clients-list c1">
                     <?php foreach($__clients_builder as $bc) { ?>
                     <div class="col-lg-3">
-                        <img src="<?php url('assets/uploads/clients/'.$bc['logo']) ?>" class="img-responsive" width="200">
+                        <div class="cimg">
+                            <img src="<?php url('assets/uploads/clients/'.$bc['logo']) ?>" class="img-responsive" width="200">
+                        </div>
                         <h1><?php echo $bc['client_name'] ?></h1>
                         <h2><?php echo $bc['company_name'] ?></h2>
                     </div>
@@ -26,7 +37,9 @@
                 <div class="clients-list c2">
                     <?php foreach($__clients_truck as $tc) { ?>
                     <div class="col-lg-3">
-                        <img src="<?php url('assets/uploads/clients/'.$tc['logo']) ?>" class="img-responsive" width="200">
+                        <div class="cimg">
+                            <img src="<?php url('assets/uploads/clients/'.$tc['logo']) ?>" class="img-responsive" width="200">
+                        </div>
                         <h1><?php echo $tc['client_name'] ?></h1>
                         <h2><?php echo $tc['company_name'] ?></h2>
                     </div>

@@ -10,7 +10,7 @@
     </div>
     <div class="col-lg-12 text-center">
         <!-- <strong>Wheels Ahoy !</strong><br> -->
-        <strong>Follow our social page</strong>
+        <strong>Follow our social pages</strong>
         <div class="social-list pl-0 mb-0">
             <a href="http://www.instagram.com/wheelsahoy/" target="_blank">
                 <i class="fab fa-instagram" style="color: rgb(255, 127, 40);" media-simple="true"></i>
