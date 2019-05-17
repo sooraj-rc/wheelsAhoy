@@ -17,8 +17,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
@@ -66,42 +67,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Talk TO Ahoy</a>
           </li>
-          <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Login
-              </a>
-                <ul class="dropdown-menu dropdown-menu-right" style="padding: 15px;min-width: 250px;margin-top: 15px;">
-                        <li>
-                           <div class="row">
-                              <div class="col-md-12">
-                                 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                    <div class="form-group">
-                                       <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                       <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-                                    </div>
-                                    <div class="form-group">
-                                       <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                       <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                    </div>
-                                    <div class="checkbox">
-                                       <label>
-                                       <input type="checkbox"> Remember me
-                                       </label>
-                                    </div>
-                                    <div class="form-group">
-                                       <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                                    </div>
-                                 </form>
-                              </div>
-                           </div>
-                        </li>
-                        <li class="divider"></li> -->
-          <!-- <li>
-                           <input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Google">
-                           <input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter">
-                        </li> -->
-          <!-- </ul>
-            </li> -->
+          
         </ul>
       </div>
     </div>
@@ -133,7 +99,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </div>
     </div>
   </section>
-  <a href="tel:+971585002469" id="fixedbutton" class="btn btn-primary d-block d-sm-none"><i class="fa fa-phone" aria-hidden="true"></i> Call us</a>                    
+  <a href="tel:+971585002469" id="fixedbutton" class="btn btn-primary "><i class="fa fa-phone" aria-hidden="true"></i> Call us</a>  <!-- d-block d-sm-none -->                  
   <input type="hidden" value="<?php url(); ?>" id="baseURL">
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

@@ -16,7 +16,7 @@
                             <div class="tm">
                                 <h4 class="text-uppercase"><strong><?php echo $testi['title'] ?></strong></h4>
                                 <p><?php echo $testi['testimonial'] ?></p>
-                                <p><img src="<?php url('assets/uploads/testimonial/'.$testi['by_image']) ?>" class="rounded-circle"></p>
+                                <p><img src="<?php url('assets/uploads/testimonial/'.$testi['by_image']) ?>" class="rounded-circle" width="75"/p>
                                 <p><strong><?php echo $testi['by_name'] ?></strong></p>
                             </div>
                         </div>

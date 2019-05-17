@@ -34,8 +34,8 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="form-group" id="truck_imageID" style="display:none;">
-                  <input type="file" class="form-control" id="truck_image" name="truck_image"  placeholder="Truck Image">
+                <div class="form-group" id="truck_imageID" style="display:none; float:left;">
+                  <input type="file" id="truck_image" name="truck_image"  placeholder="Truck Image">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -70,12 +70,12 @@
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <textarea class="form-control" id="message" name="message" placeholder="Your Message *"></textarea>
+                  <textarea class="form-control" id="message" name="message" placeholder="Your Message *" style="line-height: 1.5 !important;"></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group" id="agreeID" style="display:none;">
                   <input type="checkbox" name="agree_img-show" id="agreeImgShow"> By clicking this button you agree that you have no objection in displaying the images you 
-have provided, in our website. We will return them when we sell your truck successfully ;)
+have provided, in our website. We will return them when we sell your truck successfully <i class="far fa-smile-wink" style="color: #f57f2a;"></i>
                 </div>
               </div>
             </div>
