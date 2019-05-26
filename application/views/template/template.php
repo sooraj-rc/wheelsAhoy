@@ -30,6 +30,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link href="<?php echo c('css_path_url'); ?>slick-theme.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="<?php echo c('css_path_url'); ?>creative.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+  <style>
+    .select2-container--default .select2-selection--single .select2-selection__rendered{line-height: 3.5 !important;color: #495057 !important; text-align:left !important;}
+    .select2-container--default .select2-selection--single{height:70px!important; border: 1px solid #ced4da !important;;}
+    .select2-container--default .select2-selection--single .select2-selection__arrow b{top:120% !important;}
+  </style>
 </head>
 
 <body id="page-top">
@@ -55,19 +61,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#clients">Clients</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#testimonials">Testimonials</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#blogs">Blogs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#events">Events</a>
-          </li>
+          <?php if ($__web_settings['testimonial_status'] == 1) { ?>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#testimonials">Testimonials</a>
+            </li>
+          <?php
+        }
+        if ($__web_settings['blog_status'] == 1) {
+          ?>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#blogs">Blogs</a>
+            </li>
+          <?php
+        }
+        if ($__web_settings['event_status'] == 1) {
+          ?>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#events">Events</a>
+            </li>
+          <?php
+        }
+        ?>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Talk TO Ahoy</a>
           </li>
-          
+
         </ul>
       </div>
     </div>
@@ -99,7 +117,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </div>
     </div>
   </section>
-  <a href="tel:+971585002469" id="fixedbutton" class="btn btn-primary "><i class="fa fa-phone" aria-hidden="true"></i> Call us</a>  <!-- d-block d-sm-none -->                  
+  <a href="tel:+971585002469" id="fixedbutton" class="btn btn-primary d-block d-sm-none"><i class="fa fa-phone" aria-hidden="true"></i> Call us</a> <!--  -->
+  <a href="#contact" id="fixedbutton" class="btn btn-primary js-scroll-trigger"><i class="fas fa-envelope"></i> Contact Us</a> <!--  -->
   <input type="hidden" value="<?php url(); ?>" id="baseURL">
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -110,14 +129,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
   <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  
 
   <!-- Custom scripts for this template -->
   <script src="<?php echo c('js_path_url'); ?>creative.min.js"></script>
   <script src="<?php echo c('js_path_url'); ?>parallax.js"></script>
   <script src="<?php echo c('js_path_url'); ?>jquery.validate.min.js"></script>
   <script src="<?php echo c('js_path_url'); ?>site.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
   <script>
-    
+    $(document).ready(function(){
+      $('.countrySelect2').select2();
+    });
   </script>
 </body>
 

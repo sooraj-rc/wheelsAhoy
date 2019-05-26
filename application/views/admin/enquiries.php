@@ -4,10 +4,16 @@
 		border-radius: 10px;
 		padding: 10px;
 	}
-	.scroll{
+
+	.scroll {
 		height: 170px;
-    	overflow: scroll;
-    	overflow-x: auto;
+		overflow: scroll;
+		overflow-x: auto;
+	}
+	.timage{
+		border: #ccc solid 1px;
+    	border-radius: 5px;
+    	margin: 3px;
 	}
 </style>
 <link rel="stylesheet" href="<?php echo c('css_path_url'); ?>admin/switch.css">
@@ -25,45 +31,55 @@
 		<div class="box box-warning">
 			<div class="box-header">
 				<div class="form-group">
-					<?php include('alert-message.php'); ?>					
+					<?php include('alert-message.php'); ?>
 				</div>
-				
+
 			</div>
 
 			<div class="box-body">
 				<table class="table" id="enQ">
-                <thead>
-                    <tr>
-						<th>#</th>
-						<th>Concern</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Country</th>
-                        <th>Message</th>                        
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i=1; foreach($enquiries as $enq) { ?>
-                        <tr>
-							<td><?php echo $i++; ?></td>
-							<td>
-								<?php echo $enq['contact_for']; ?> <br>
-								<?php if(!empty($enq['truck_image'])) { ?>
-									<a href="<?php url('assets/uploads/user-trucks/'.$enq['truck_image']) ?>" target="_new" >Truck Image</a>
-								<?php } ?>
-							</td>
-                            <td><?php echo $enq['name']; ?></td>
-                            <td><?php echo $enq['email']; ?></td>
-                            <td><?php echo $enq['phone']; ?></td>
-                            <td><?php echo $enq['country']; ?></td>
-                            <td><?php echo $enq['message']; ?></td>                            
-                            <td><?php echo $enq['datetime']; ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-                </table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Concern</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Phone</th>
+							<th>Country</th>
+							<th>Message</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php $i = 1;
+						foreach ($enquiries as $enq) { ?>
+							<tr>
+								<td><?php echo $i++; ?></td>
+								<td>
+									<?php echo $enq['contact_for']; ?> <br>
+									<?php
+									if (!empty($enq['truck_image'])) {
+										$timages = explode(',',$enq['truck_image']);
+										foreach($timages as $timage){
+										?>
+										<a href="<?php url('assets/uploads/user-trucks/' . $timage) ?>" target="_new">
+											<img src="<?php url('assets/uploads/user-trucks/' . $timage) ?>" class="timage" width="75">
+										</a>
+									<?php 
+										}
+									} 
+									?>
+								</td>
+								<td><?php echo $enq['name']; ?></td>
+								<td><?php echo $enq['email']; ?></td>
+								<td><?php echo $enq['phone']; ?></td>
+								<td><?php echo $enq['country']; ?></td>
+								<td><?php echo $enq['message']; ?></td>
+								<td><?php echo $enq['datetime']; ?></td>
+							</tr>
+						<?php } ?>
+					</tbody>
+				</table>
 
 			</div>
 		</div>

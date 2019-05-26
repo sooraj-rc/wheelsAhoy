@@ -35,7 +35,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group" id="truck_imageID" style="display:none; float:left;">
-                  <input type="file" id="truck_image" name="truck_image"  placeholder="Truck Image">
+                  <input type="file" id="truck_image" name="truck_images[]"  placeholder="Truck Image" multiple >
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -59,7 +59,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <select name="country" id="country" class="form-control" style="height: 70px;">
+                  <select name="country" id="country" class="form-control countrySelect2" style="height: 70px;">
                     <option value="">Select your location</option>
                     <?php foreach($__countries as $country) { ?>
                       <option value="<?php echo $country['nicename'] ?>"><?php echo $country['nicename'] ?></option>
@@ -70,7 +70,7 @@
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <textarea class="form-control" id="message" name="message" placeholder="Your Message *" style="line-height: 1.5 !important;"></textarea>
+                  <textarea class="form-control" id="message" name="message" placeholder="Your Message *" style="line-height: 1.5 !important; height: 130px;"></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group" id="agreeID" style="display:none;">

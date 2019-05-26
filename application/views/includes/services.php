@@ -40,7 +40,7 @@
                         <?php echo $service['descr'] ?>
                     </div>
                     <?php if($service['btn_status'] == 1) { ?> <br>
-                        <a href="#contact" class="btn btn-primary">Contact Us</a>
+                        <a href="#contact" class="btn btn-primary js-scroll-trigger">Contact Us</a>
                     <?php } ?>
                 </div>
             </div>

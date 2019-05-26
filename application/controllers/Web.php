@@ -32,17 +32,25 @@ class Web extends CI_Controller
 
         public function post_contact_form(){
                 
-                
-                if(!empty($_FILES['truck_image']['name'])) {                                        
-                        $config['upload_path']          = './assets/uploads/user-trucks/';
-                        $config['allowed_types']        = 'jpg|png';
-                        $config['encrypt_name'] = TRUE;
-                        $this->load->library('upload', $config);
-                        if ($this->upload->do_upload('truck_image')) {
-                                $upload_detail = $this->upload->data();                        
-                                $truck_image = $upload_detail["file_name"];
+                $filesCount = count($_FILES['truck_images']['name']);
+                for($i=0; $i<$filesCount; $i++){
+                        $_FILES['truck_image']['name']     = $_FILES['truck_images']['name'][$i];
+                        $_FILES['truck_image']['type']     = $_FILES['truck_images']['type'][$i];
+                        $_FILES['truck_image']['tmp_name'] = $_FILES['truck_images']['tmp_name'][$i];
+                        $_FILES['truck_image']['error']    = $_FILES['truck_images']['error'][$i];
+                        $_FILES['truck_image']['size']     = $_FILES['truck_images']['size'][$i];
+                        if(!empty($_FILES['truck_image']['name'])) {                                        
+                                $config['upload_path']          = './assets/uploads/user-trucks/';
+                                $config['allowed_types']        = 'jpg|png';
+                                $config['encrypt_name'] = TRUE;
+                                $this->load->library('upload', $config);
+                                if ($this->upload->do_upload('truck_image')) {
+                                        $upload_detail = $this->upload->data();                        
+                                        $truck_images[$i] = $upload_detail["file_name"];
+                                }
                         }
                 }
+                
                 //p($this->input->post(),true);
                 $data = array(
                         'name' => $this->input->post('name'),
@@ -51,8 +59,9 @@ class Web extends CI_Controller
                         'country' => $this->input->post('country'),
                         'message' => $this->input->post('message'),
                         'contact_for' => $this->input->post('contact_for'),
-                        'truck_image'  => $truck_image
+                        'truck_image'  => implode(',',$truck_images)
                 );
+                //p($truck_images,true);
                 $op = $this->admin_model->process_contact_form($data);
                 if($op) {
                         //echo "success";     
@@ -62,7 +71,9 @@ class Web extends CI_Controller
                         //$to = "soorajsolutino@gmail.com";
                         $to = "webenquiries@wheelsahoy.com";
                         $subject = "Received and enquiry from WheelsAhoy";
-                        $this->sendMail($to, $subject, $mail_content);
+                        
+                        $this->sendMail($to, $subject, $mail_content, $truck_images);
+
                         sf('success_message', 'Thank you! We will get back to you soon.');
 		        redirect("#contact");
                 } else { 
@@ -73,21 +84,21 @@ class Web extends CI_Controller
         }
 
 
-        function sendMail($to = "", $subject = "", $content = ""){
+        function sendMail($to = "", $subject = "", $content = "", $attachments = array()){
                 // Load PHPMailer library
                 $this->load->library('phpmailer_lib');
 
                 // PHPMailer object
                 $mail = $this->phpmailer_lib->load();
 
-                // SMTP configuration
-                $mail->isSMTP();                
-                $mail->Host = 'smtp.gmail.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'soorajsolutino@gmail.com';
-                $mail->Password = 'srjsolutino';
-                $mail->SMTPSecure = 'tls';
-                $mail->Port = 587;
+                // SMTP configuration - TEST
+                // $mail->isSMTP();                
+                // $mail->Host = 'smtp.gmail.com';
+                // $mail->SMTPAuth = true;
+                // $mail->Username = 'soorajsolutino@gmail.com';
+                // $mail->Password = 'srjsolutino';
+                // $mail->SMTPSecure = 'tls';
+                // $mail->Port = 587;
 
                 $from_email = "info@wheelsahoy.com";
                 $from_name = "Wheels Ahoy";
@@ -97,10 +108,10 @@ class Web extends CI_Controller
 
                 // Add a recipient
                 $mail->addAddress($to);
-
-                // Add cc or bcc 
-                //$mail->addCC('cc@example.com');
-                //$mail->addBCC('bcc@example.com');
+                foreach($attachments as $file){
+                        $path = 'assets/uploads/user-trucks/' . $file;//url('assets/uploads/user-trucks/' . $file);
+                        $mail->addAttachment($path); 
+                }                
 
                 // Email subject
                 $mail->Subject = $subject;
@@ -113,7 +124,7 @@ class Web extends CI_Controller
 
                 // Send email
                 if (!$mail->send()) {                        
-                        //echo $mail->ErrorInfo;
+                        echo $mail->ErrorInfo; exit;
                         return false;
                 } else {
                         return true;

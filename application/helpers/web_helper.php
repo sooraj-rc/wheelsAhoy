@@ -93,7 +93,7 @@ function get_mail_content($mail_data = ''){
                   <!-- START MAIN CONTENT AREA -->
                   <tr>
                     <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 20px;">
-<div style="text-align:center; margin:auto;"><img src="'.url('assets/img/logo-1.png').'" width="150" ></div>
+<div style="text-align:center; margin:auto;"><img src="'.base_url().'assets/img/logo-1.png" width="150" ></div>
                       <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                         <tr>
                           <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
@@ -157,7 +157,7 @@ function get_contact_maildata($data = array()){
     </tr>
     <tr>
         <td>Phone: </td>
-        <td>'.$data['country'].'</td>
+        <td>'.$data['phone'].'</td>
     </tr>
     <tr>
         <td>Country: </td>
@@ -176,6 +176,6 @@ function get_contact_maildata($data = array()){
         <td>'.date('d/m/Y').'</td>
     </tr>
     </table>
-    <p>For more info, Please login to WheelsAhoy admin panel and check <a href"'.base_url().'admin">Click Here</a></p>';
+    <p>For more info, Please login to WheelsAhoy admin panel and check <a href="'.base_url().'admin">Click Here</a></p>';
     return $mail_data;
 }
