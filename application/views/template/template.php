@@ -35,6 +35,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     .select2-container--default .select2-selection--single .select2-selection__rendered{line-height: 3.5 !important;color: #495057 !important; text-align:left !important;}
     .select2-container--default .select2-selection--single{height:70px!important; border: 1px solid #ced4da !important;;}
     .select2-container--default .select2-selection--single .select2-selection__arrow b{top:120% !important;}
+    .select2-container{width: 100% !important;}
   </style>
 </head>
 

@@ -4,7 +4,7 @@
             <div class="col-lg-12 text-center">
                 <h1 class="section-heading">AHOY SERVICES</h1>
                 <hr class="my-4">
-                <p class="mbr-text align-center pb-3 mbr-fonts-style display-7">Tell us about yourself and we’ll tell you how we can help!!!</p>
+                <p class="mbr-text align-center pb-3 mbr-fonts-style display-7"><?php echo $__service_sub['contents']; ?></p>
             </div>
         </div>
     </div>

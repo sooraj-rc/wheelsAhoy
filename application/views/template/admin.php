@@ -137,6 +137,27 @@
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-cubes"></i>
+                                <span>Manage Subtitles</span>                                
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo admin_url() . 'c/service_subtitle'; ?>"><i class="fa fa-edit"></i> Services subtitle</a>
+                                </li>
+                                <li><a href="<?php echo admin_url() . 'c/market_subtitle'; ?>"><i class="fa fa-edit"></i> Market subtitle</a>
+                                </li>
+                                <li><a href="<?php echo admin_url() . 'c/client_subtitle'; ?>"><i class="fa fa-edit"></i> Clients subtitle</a>
+                                </li>
+                                <li><a href="<?php echo admin_url() . 'c/testimonial_subtitle'; ?>"><i class="fa fa-edit"></i> Testimonial subtitle</a>
+                                </li>                                
+                                <li><a href="<?php echo admin_url() . 'c/blog_subtitle'; ?>"><i class="fa fa-edit"></i> Blog subtitle</a>
+                                </li>
+                                <li><a href="<?php echo admin_url() . 'c/event_subtitle'; ?>"><i class="fa fa-edit"></i> Event subtitle</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cubes"></i>
                                 <span>Manage Portfolio</span>                                
                             </a>
                             <ul class="treeview-menu">
@@ -233,20 +254,19 @@
                         </li>
                                                 
 
-                        <li class="divider" style="border: #304148 solid 1px;"></li>
+                        <!-- <li class="divider" style="border: #304148 solid 1px;"></li>
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-cogs"></i>
                                 <span>Admin Profile Settings</span>                               
                             </a>
                             <ul class="treeview-menu"> 
-                                <!-- <li><a href="#"><i class="fa fa-circle-o"></i> Profile</a>
-                                </li> -->
-                                <li><a href="<?php echo admin_url() . 'reset-pwd'; ?>"><i class="fa fa-lock"></i> Reset password</a>
+                                
+                                <li><a href="<?php //echo admin_url() . 'reset-pwd'; ?>"><i class="fa fa-lock"></i> Reset password</a>
                                 </li>
 
                             </ul>
-                        </li> 
+                        </li>  -->
 
 
                     </ul>

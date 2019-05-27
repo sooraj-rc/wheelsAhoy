@@ -4,7 +4,7 @@
             <div class="col-lg-12 text-center">
                 <h1 class="section-heading">TESTIMONIALS</h1>
                 <hr class="my-4">
-                <p class="mbr-text align-center pb-3 mbr-fonts-style display-7">Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                <p class="mbr-text align-center pb-3 mbr-fonts-style display-7"><?php echo $__testimonial_sub['contents']; ?></p>
             </div>
             <div class="container">
 

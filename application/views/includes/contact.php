@@ -36,6 +36,7 @@
               <div class="col-md-6">
                 <div class="form-group" id="truck_imageID" style="display:none; float:left;">
                   <input type="file" id="truck_image" name="truck_images[]"  placeholder="Truck Image" multiple >
+                  <br><small style="float: left;">Please press Ctrl key to choose multiple images</small>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -74,7 +75,7 @@
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group" id="agreeID" style="display:none;">
-                  <input type="checkbox" name="agree_img-show" id="agreeImgShow"> By clicking this button you agree that you have no objection in displaying the images you 
+                  <input type="checkbox" name="agree_img-show" id="agreeImgShow" checked> By clicking this button you agree that you have no objection in displaying the images you 
 have provided, in our website. We will return them when we sell your truck successfully <i class="far fa-smile-wink" style="color: #f57f2a;"></i>
                 </div>
               </div>

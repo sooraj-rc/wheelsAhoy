@@ -19,9 +19,9 @@ class Phpmailer_lib
         // Include PHPMailer library files
         require_once APPPATH.'third_party/PHPMailer/Exception.php';
         require_once APPPATH.'third_party/PHPMailer/PHPMailer.php';
-        //require_once APPPATH.'third_party/PHPMailer/SMTP.php';
+        require_once APPPATH.'third_party/PHPMailer/SMTP.php';
         
-        $mail = new PHPMailer();
+        $mail = new PHPMailer;
         return $mail;
     }
 }

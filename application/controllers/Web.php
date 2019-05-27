@@ -25,6 +25,14 @@ class Web extends CI_Controller
                 $this->gen_contents['__events_up']      = $this->admin_model->get_events('upcoming'); // get events - upcoming
                 $this->gen_contents['__events_past']    = $this->admin_model->get_events('past'); // get events - past
                 $this->gen_contents['__portfolio']      = $this->admin_model->get_portfolio(); // get portfolio
+
+                //Sub titles
+                $this->gen_contents['__service_sub']    = $this->admin_model->get_content_data('service_subtitle');
+                $this->gen_contents['__market_sub']     = $this->admin_model->get_content_data('market_subtitle');
+                $this->gen_contents['__testimonial_sub']= $this->admin_model->get_content_data('testimonial_subtitle');
+                $this->gen_contents['__client_sub']     = $this->admin_model->get_content_data('client_subtitle');
+                $this->gen_contents['__blog_sub']       = $this->admin_model->get_content_data('blog_subtitle');
+                $this->gen_contents['__event_sub']      = $this->admin_model->get_content_data('event_subtitle');
                 //p($this->gen_contents['__story'], true);
                 $this->template->write_view('content', 'index', $this->gen_contents);
                 $this->template->render();
@@ -70,7 +78,7 @@ class Web extends CI_Controller
                         //echo $mail_content; exit;
                         //$to = "soorajsolutino@gmail.com";
                         $to = "webenquiries@wheelsahoy.com";
-                        $subject = "Received and enquiry from WheelsAhoy";
+                        $subject = "Received an enquiry from WheelsAhoy";
                         
                         $this->sendMail($to, $subject, $mail_content, $truck_images);
 
@@ -92,13 +100,13 @@ class Web extends CI_Controller
                 $mail = $this->phpmailer_lib->load();
 
                 // SMTP configuration - TEST
-                // $mail->isSMTP();                
-                // $mail->Host = 'smtp.gmail.com';
-                // $mail->SMTPAuth = true;
-                // $mail->Username = 'soorajsolutino@gmail.com';
-                // $mail->Password = 'srjsolutino';
-                // $mail->SMTPSecure = 'tls';
-                // $mail->Port = 587;
+                $mail->isSMTP();                
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'soorajsolutino@gmail.com';
+                $mail->Password = 'srjsolutino';
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = 587;
 
                 $from_email = "info@wheelsahoy.com";
                 $from_name = "Wheels Ahoy";
@@ -124,7 +132,7 @@ class Web extends CI_Controller
 
                 // Send email
                 if (!$mail->send()) {                        
-                        echo $mail->ErrorInfo; exit;
+                        //echo $mail->ErrorInfo; exit;
                         return false;
                 } else {
                         return true;
