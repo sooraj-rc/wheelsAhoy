@@ -15,10 +15,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php include('includes/whatwehave.php') ?>
 
 <!-- 4. Stock section    -->
-<?php include('includes/stocks.php') ?>
+<?php 
+if($__web_settings['stock_status'] == 1){
+    include('includes/stocks.php');
+} 
+?>
 
 <!-- 5. Clients section    -->
-<?php include('includes/clients.php') ?>
+<?php 
+if($__web_settings['clients_status'] == 1){
+    include('includes/clients.php');
+}
+?>
 
 <!-- 6. Testimonials section    -->
 <?php 

@@ -476,7 +476,7 @@ header.masthead p {
     height: auto;
 }
 .clients-list div{
-    text-align: center;
+    /* text-align: center; */
 }
 .clients-list h1,h2{
     font-family: 'Architects Daughter', cursive;

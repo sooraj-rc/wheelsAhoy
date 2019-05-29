@@ -49,3 +49,5 @@
         </div>
     </div>
 </section>
+<input type="hidden" id="__countc1" value="<?php echo count($__clients_builder); ?>">
+<input type="hidden" id="__countc2" value="<?php echo count($__clients_truck); ?>">

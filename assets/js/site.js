@@ -42,20 +42,24 @@ $('.event2').slick({
     autoplay: true,
     responsive: settings
 });
-$('.c1').slick({
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
-    responsive: settings
-});
-$('.c2').slick({
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
-    responsive: settings
-});
+if($("#__countc1").val() > 4){
+    $('.c1').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        autoplay: true,
+        responsive: settings
+    });
+} else {$('.c1').addClass('row');}
+if($("#__countc2").val() > 4){
+    $('.c2').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        autoplay: true,
+        responsive: settings
+    });
+} else {$('.c2').addClass('row');}
 
 //---- Blog Readmore
 $(document).ready(function () {

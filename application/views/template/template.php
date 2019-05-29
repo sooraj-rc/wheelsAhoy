@@ -32,10 +32,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link href="<?php echo c('css_path_url'); ?>creative.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
   <style>
-    .select2-container--default .select2-selection--single .select2-selection__rendered{line-height: 3.5 !important;color: #495057 !important; text-align:left !important;}
-    .select2-container--default .select2-selection--single{height:70px!important; border: 1px solid #ced4da !important;;}
-    .select2-container--default .select2-selection--single .select2-selection__arrow b{top:120% !important;}
-    .select2-container{width: 100% !important;}
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+      line-height: 3.5 !important;
+      color: #495057 !important;
+      text-align: left !important;
+    }
+
+    .select2-container--default .select2-selection--single {
+      height: 70px !important;
+      border: 1px solid #ced4da !important;
+      ;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow b {
+      top: 120% !important;
+    }
+
+    .select2-container {
+      width: 100% !important;
+    }
   </style>
 </head>
 
@@ -56,13 +71,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#services">Ahoy Services</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#stocks">Ahoy Market</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#clients">Clients</a>
-          </li>
-          <?php if ($__web_settings['testimonial_status'] == 1) { ?>
+          <?php if ($__web_settings['stock_status'] == 1) { ?>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#stocks">Ahoy Market</a>
+            </li>
+          <?php }
+        if ($__web_settings['clients_status'] == 1) { ?>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#clients">Clients</a>
+            </li>
+          <?php
+        }
+
+        if ($__web_settings['testimonial_status'] == 1) { ?>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#testimonials">Testimonials</a>
             </li>
@@ -130,7 +151,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
   <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-  
+
 
   <!-- Custom scripts for this template -->
   <script src="<?php echo c('js_path_url'); ?>creative.min.js"></script>
@@ -139,7 +160,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <script src="<?php echo c('js_path_url'); ?>site.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
   <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
       $('.countrySelect2').select2();
     });
   </script>
