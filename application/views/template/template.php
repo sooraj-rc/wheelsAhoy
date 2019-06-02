@@ -140,7 +140,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
   </section>
   <a href="tel:+971585002469" id="fixedbutton" class="btn btn-primary d-block d-sm-none"><i class="fa fa-phone" aria-hidden="true"></i> Call us</a> <!--  -->
-  <a href="#contact" id="fixedbutton" class="btn btn-primary js-scroll-trigger"><i class="fas fa-envelope"></i> Contact Us</a> <!--  -->
+  <a href="#contact" id="fixedbutton" class="btn btn-primary js-scroll-trigger d-none d-sm-block "><i class="fas fa-envelope"></i> Contact Us</a> <!--  -->
   <input type="hidden" value="<?php url(); ?>" id="baseURL">
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

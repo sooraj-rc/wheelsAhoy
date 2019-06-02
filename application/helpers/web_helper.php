@@ -1,6 +1,6 @@
 <?php
 
-function get_mail_content($mail_data = ''){
+function get_mail_template($mail_data = ''){
     $mail_content = '<!doctype html>
     <html>
       <head>
@@ -97,12 +97,11 @@ function get_mail_content($mail_data = ''){
                       <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                         <tr>
                           <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
-
-                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi there,</p>
+                            
                             <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">'.$mail_data.'</p>
                             
                             
-                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Thank you! <br> Team Wheels Ahoy</p>
+                            <!-- <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Thank you! <br> Team Wheels Ahoy</p> -->
                           </td>
                         </tr>
                       </table>
@@ -148,6 +147,10 @@ function get_contact_maildata($data = array()){
     <p>The details showing here.</p>
     <table cellpadding="5">
     <tr>
+        <td>Enquiry Ref: </td>
+        <td>'.$data['reference_id'].'</td>
+    </tr>
+    <tr>
         <td>Name: </td>
         <td>'.$data['name'].'</td>
     </tr>
@@ -176,6 +179,32 @@ function get_contact_maildata($data = array()){
         <td>'.date('d/m/Y').'</td>
     </tr>
     </table>
-    <p>For more info, Please login to WheelsAhoy admin panel and check <a href="'.base_url().'admin">Click Here</a></p>';
+    <p>For more info, Please login to WheelsAhoy admin panel and check <a href="'.base_url().'admin">Click Here</a></p>
+    <p>Kind Regards,</p>
+    <p>WheelsAhoy</p>
+    <p style="color: #ff7f28;"><b>Your Passion Curator</b></p>
+    <p>http://wheelsahoy.com</p>';
     return $mail_data;
+}
+
+function get_reply_maildata($data = array()){
+  $mail_data = '<p><b>Enquiry Ref: '.$data['reference_id'].'</b></p>
+  <p>Dear '.$data['name'].',</p>
+  <p>Greeting from Wheels Ahoy.</p>
+  <p>Thank you for your interest. We at <b>WheelsAhoy</b>, specialize in custom fabrications, concepts building and planning leasing for
+  individuals, SMEs and corporate organisations in Middle East.</p>
+  <p>Our Client Relationship Specialist will get in touch with you for further discussions.</p>
+  <p>Kind Regards,</p>
+  <p>WheelsAhoy</p>
+  <p style="color: #ff7f28;"><b>Your Passion Curator</b></p>
+  <p>http://wheelsahoy.com</p>';
+  return $mail_data;
+}
+
+function get_subject_time(){
+  $tz = 'Asia/Dubai';
+  $timestamp = time();
+  $dt = new DateTime("now", new DateTimeZone($tz)); 
+  $dt->setTimestamp($timestamp); 
+  return $dt->format('D M d H:i:s');
 }

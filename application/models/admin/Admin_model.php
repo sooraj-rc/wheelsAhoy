@@ -531,16 +531,27 @@ class Admin_model extends CI_Model
 	//process contact us form
 	public function process_contact_form($data = array()){
 		if($this->db->insert("wa_contactus", $data)){
-			return true;
+			$id = $this->db->insert_id();
+			return $id;
 		}
 		else{
 			return false;
 		}
 	}
+
+	//update contact form
+	public function update_contact_form($data = array()){
+		$this->db->where("id", $data['id']);
+		$this->db->update("wa_contactus", $data);
+		return true;
+	}
 	
 	//get enquiries
 	public function get_enquiries(){
-		$query = $this->db->select("*,DATE_FORMAT(date_time, '%Y-%m-%d %h:%i %p') as datetime")->from("wa_contactus")->get();
+		$query = $this->db->select("*,DATE_FORMAT(date_time, '%Y-%m-%d %h:%i %p') as datetime")
+		->order_by('date_time', 'desc')
+		->from("wa_contactus")
+		->get();
 		if ($query->num_rows() > 0) {
 			$result = $query->result_array();
 			return $result;

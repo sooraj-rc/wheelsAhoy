@@ -485,7 +485,9 @@ header.masthead p {
 }
 .clients-list h1{font-size: 21px;padding-top: 15px;}
 .clients-list h2{font-size: 18px;font-weight: 100;}
-
+.btn-primary:not(:disabled):not(.disabled).active{
+    background-color: #f57f2a !important; 
+}
 .blog-head{
     text-transform: uppercase;    
 }

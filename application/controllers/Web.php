@@ -60,6 +60,7 @@ class Web extends CI_Controller
                 }
                 
                 //p($this->input->post(),true);
+                //$reference_id = strtoupper(substr(md5(uniqid()),0,15));
                 $data = array(
                         'name' => $this->input->post('name'),
                         'email' => $this->input->post('email'),
@@ -67,20 +68,37 @@ class Web extends CI_Controller
                         'country' => $this->input->post('country'),
                         'message' => $this->input->post('message'),
                         'contact_for' => $this->input->post('contact_for'),
-                        'truck_image'  => implode(',',$truck_images)
+                        'truck_image'  => implode(',',$truck_images),
+                        //'reference_id' => $reference_id
                 );
                 //p($truck_images,true);
-                $op = $this->admin_model->process_contact_form($data);
-                if($op) {
+                $op_id = $this->admin_model->process_contact_form($data);
+                $reference_id = "F".date("ymd")."00".$op_id;
+                $update_data = array(
+                        'id' => $op_id,
+                        'reference_id' => $reference_id
+                );
+                $this->admin_model->update_contact_form($update_data); //update reference id 
+                $data['reference_id'] = $reference_id;                
+                if($op_id > 0) {
                         //echo "success";     
                         $mail_data = get_contact_maildata($data);                        
-                        $mail_content = get_mail_content($mail_data);
-                        //echo $mail_content; exit;
+                        $mail_content = get_mail_template($mail_data);                        
                         //$to = "soorajsolutino@gmail.com";
                         $to = "webenquiries@wheelsahoy.com";
-                        $subject = "Received an enquiry from WheelsAhoy";
+                        //Ref 1335 Sun May 26 16:30:10 GST 2019 | Enquiry Ref: 
+                        $subject_time = get_subject_time();
+                        $subject = "Ref ".$reference_id." ".$subject_time." GST ".date("Y");
                         
                         $this->sendMail($to, $subject, $mail_content, $truck_images);
+
+                        //--------------- send auto reply to user ----------------
+                                $mail_data_reply = get_reply_maildata($data);
+                                $mail_content_reply = get_mail_template($mail_data_reply);
+                                $to1 = $data['email'];
+                                $subject_reply = "Ref ".$data['reference_id']." - Thank you for your interest - WheelsAhoy";
+                                $this->sendMail($to1, $subject_reply, $mail_content_reply);
+                        //--------------- send auto reply to user ----------------
 
                         sf('success_message', 'Thank you! We will get back to you soon.');
 		        redirect("#contact");
@@ -113,13 +131,15 @@ class Web extends CI_Controller
 
                 $mail->setFrom($from_email, $from_name);
                 //$mail->addReplyTo('info@example.com', 'CodexWorld');
-
                 // Add a recipient
                 $mail->addAddress($to);
-                foreach($attachments as $file){
-                        $path = 'assets/uploads/user-trucks/' . $file;//url('assets/uploads/user-trucks/' . $file);
-                        $mail->addAttachment($path); 
-                }                
+
+                if(!empty($attachments)){
+                        foreach($attachments as $file){
+                                $path = 'assets/uploads/user-trucks/' . $file;//url('assets/uploads/user-trucks/' . $file);
+                                $mail->addAttachment($path); 
+                        }    
+                }                   
 
                 // Email subject
                 $mail->Subject = $subject;

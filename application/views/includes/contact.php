@@ -6,7 +6,7 @@
           <h1 class="section-heading text-uppercase">TALK TO AHOY</h1>
           <hr>
           <p class="text-muted mb-0">You feel we can be helpful to you? Then say AHOY and talk to us.
-            And see how we can be your passion curators.<br>Fill the below form or call <strong style="color:#ff7f28">+971 58 500 AHOY (2469)</strong><br>or drop in a mail at <strong style="color:#ff7f28">info@wheelsahoy.com</strong><br></p>
+            And see how we can be your passion curators.<br>Fill the below form or call <br><strong style="color:#ff7f28">+971 58 500 AHOY (2469)</strong><br>or drop in a mail at <strong style="color:#ff7f28">info@wheelsahoy.com</strong><br></p>
         </div>
       </div>
       <div class="row">

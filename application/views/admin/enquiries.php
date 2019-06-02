@@ -41,6 +41,7 @@
 					<thead>
 						<tr>
 							<th>#</th>
+							<th>Reference #</th>
 							<th>Concern</th>
 							<th>Name</th>
 							<th>Email</th>
@@ -55,6 +56,7 @@
 						foreach ($enquiries as $enq) { ?>
 							<tr>
 								<td><?php echo $i++; ?></td>
+								<td><?php echo $enq['reference_id']; ?></td>
 								<td>
 									<?php echo $enq['contact_for']; ?> <br>
 									<?php
