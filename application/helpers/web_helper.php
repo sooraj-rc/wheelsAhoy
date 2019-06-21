@@ -100,7 +100,20 @@ function get_mail_template($mail_data = ''){
                             
                             <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">'.$mail_data.'</p>
                             
-                            
+                            <br>
+                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px; color:#999999">
+                              Kind Regards, <br><br> <b>Team Ahoy</b> <br>
+                              <img src="'.base_url().'assets/img/logo-1.png" width="100" style="padding:10px 10px;"><br>
+                              <b style="color: #ff7f28;">Your Passion Curators</b> <br><br>
+                              (T) +971 4 2675 244 / (M) +971 58 500 <span style="color: #ff7f28;">AHOY</span> (2469)
+                              <br> <a href="http://www.wheelsahoy.com" style="color: #ff7f28;">www.wheelsahoy.com</a> / <a href="mailto:info@wheelsahoy.com" style="color: #ff7f28;">info@wheelsahoy.com</a>
+                              <br><br>
+                              <small style="color:#ff7f28">Follow Us on</small>
+                              <br> 
+                              <a href="https://www.instagram.com/wheelsahoy/"><img src="'.base_url().'assets/img/sm/ig.png"></a>
+                              <a href="http://www.facebook.com/wheelsahoyUAE/"><img src="'.base_url().'assets/img/sm/fb.png"></a>
+                              <a href="https://www.linkedin.com/company/wheels-ahoy"><img src="'.base_url().'assets/img/sm/lin.png"></a>
+                            </p>
                             <!-- <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Thank you! <br> Team Wheels Ahoy</p> -->
                           </td>
                         </tr>
@@ -180,10 +193,7 @@ function get_contact_maildata($data = array()){
     </tr>
     </table>
     <p>For more info, Please login to WheelsAhoy admin panel and check <a href="'.base_url().'admin">Click Here</a></p>
-    <p>Kind Regards,</p>
-    <p>WheelsAhoy</p>
-    <p style="color: #ff7f28;"><b>Your Passion Curator</b></p>
-    <p>http://wheelsahoy.com</p>';
+    <p></p>    ';
     return $mail_data;
 }
 
@@ -193,11 +203,7 @@ function get_reply_maildata($data = array()){
   <p>Greeting from Wheels Ahoy.</p>
   <p>Thank you for your interest. We at <b>WheelsAhoy</b>, specialize in custom fabrications, concepts building and planning leasing for
   individuals, SMEs and corporate organisations in Middle East.</p>
-  <p>Our Client Relationship Specialist will get in touch with you for further discussions.</p>
-  <p>Kind Regards,</p>
-  <p>WheelsAhoy</p>
-  <p style="color: #ff7f28;"><b>Your Passion Curator</b></p>
-  <p>http://wheelsahoy.com</p>';
+  <p>Our Client Relationship Specialist will get in touch with you for further discussions.</p>';
   return $mail_data;
 }
 

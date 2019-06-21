@@ -116,7 +116,9 @@ $(document).ready(function () {
             contact_for: "Please choose an option.",
         },
         submitHandler: function (form) { 
-            //alert("HEllo");
+            //alert("HEllo");'
+            $("#sendMessageButton").attr("disabled", true);
+            $("#sendMessageButton").text("SENDING..");
             form.submit();
             
         }

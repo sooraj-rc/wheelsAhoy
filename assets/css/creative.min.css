@@ -488,6 +488,9 @@ header.masthead p {
 .btn-primary:not(:disabled):not(.disabled).active{
     background-color: #f57f2a !important; 
 }
+.btn-primary.disabled, .btn-primary:disabled{
+    background-color: #f57f2a !important; 
+}
 .blog-head{
     text-transform: uppercase;    
 }

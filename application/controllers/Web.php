@@ -83,9 +83,11 @@ class Web extends CI_Controller
                 if($op_id > 0) {
                         //echo "success";     
                         $mail_data = get_contact_maildata($data);                        
-                        $mail_content = get_mail_template($mail_data);                        
-                        //$to = "soorajsolutino@gmail.com";
-                        $to = "webenquiries@wheelsahoy.com";
+                        $mail_content = get_mail_template($mail_data);  
+                        if(ENVIRONMENT == "development")                    
+                                $to = "soorajsolutino@gmail.com";
+                        else
+                                $to = "webenquiries@wheelsahoy.com";
                         //Ref 1335 Sun May 26 16:30:10 GST 2019 | Enquiry Ref: 
                         $subject_time = get_subject_time();
                         $subject = "Ref ".$reference_id." ".$subject_time." GST ".date("Y");
